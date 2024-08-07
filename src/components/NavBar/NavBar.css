@@ -3,6 +3,7 @@ nav {
     display: flex;
     width: 100vw;
     justify-content: space-between;
+    border: 1px solid #EBEBEF;
 }
 
 .title-div-nav {
@@ -39,33 +40,22 @@ nav {
 .active-button-nav {
     border: 1px solid #DBF3FF;
     background-color: #F0FAFF;
-}
-
-.text-active-button-nav {
-    font-weight: bold;
     color: #00ACFF;
 }
 
 .deactivated-button-nav {
-    border: 0;
     background-color: rgba(0,0,0,0);
-}
-
-.text-deactivated-button-nav {
     color: #3F3F50;
+    border: 1px solid rgba(0,0,0,0);
 }
 
 .button-nav {
     border-radius: 4px;
     padding: 4px 12px;
-    margin: 0;
-    margin-left: 24px;
-}
-
-.text-button-nav {
-    margin: 0;
+    margin: 0 0 0 24px;
     font-size: 12px;
     text-decoration: none;
+
 }
 
 .whatsapp-button-nav {
@@ -74,12 +64,13 @@ nav {
     display: flex;
     align-items: center;
     border-radius: 8px;
-    margin: 4px 8px;
+    margin: 4px 8px 4px 24px;
 }
 
 .text-whatsapp-button-nav {
     color: #FAFAFA;
     font-size: 14px;
+    margin: 0;
 }
 
 .icon-wpp-nav {
