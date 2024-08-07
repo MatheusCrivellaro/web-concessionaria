@@ -116,3 +116,46 @@
     margin-bottom: 24px;
 }
 
+.localizacao-div-inicio {
+    padding: 24px 48px 64px 48px;
+    display: flex;
+    align-items: center;
+}
+
+.mapa-div-localizacao-inicio h1 {
+    color: #121217;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 24px;
+}
+
+.mapa-div-localizacao-inicio {
+    margin-right: 48px;
+}
+
+.informacoes-localizacao-div-inicio h1 {
+    color: #121217;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 24px;
+}
+
+.informacao-localizacao-card-inicio {
+    margin-top: 16px;
+    border-bottom: solid 1px #D1D1DB;
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+}
+
+.informacao-localizacao-card-inicio h2 {
+    color: #3F3F50;
+    font-size: 16px;
+    font-weight: 300;
+    margin-left: 8px;
+}
+
+.icon-informacao-localizacao-card-inicio {
+    color: #0090D6;
+    font-size: 22px;
+}

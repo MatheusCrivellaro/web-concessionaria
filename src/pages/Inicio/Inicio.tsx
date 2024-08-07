@@ -12,6 +12,11 @@ import imageCategoriaInicio from "../../images/img-categoria.png"
 import imageAvaliacoesInicio from "../../images/amico.png"
 import imgPerfil from "../../images/img.png"
 import AvaliacaoCard from "../../components/AvaliacaoCard/AvaliacaoCard.tsx";
+import imgMap from "../../images/map.png"
+import { GrLocation } from "react-icons/gr";
+import {FaWhatsapp} from "react-icons/fa";
+import {MdOutlineEmail} from "react-icons/md";
+import {RiPhoneLine} from "react-icons/ri";
 
 const Inicio = () => {
     return (
@@ -83,6 +88,31 @@ const Inicio = () => {
                     />
                 </div>
                 <img src={imageAvaliacoesInicio} alt="" />
+            </div>
+            <div className="localizacao-div-inicio">
+                <div className="mapa-div-localizacao-inicio">
+                    <h1>Onde estamos?</h1>
+                    <img src={imgMap} alt=""/>
+                </div>
+                <div className="informacoes-localizacao-div-inicio">
+                    <h1>Nome da loja</h1>
+                    <div className="informacao-localizacao-card-inicio">
+                        <GrLocation className="icon-informacao-localizacao-card-inicio"/>
+                        <h2>Rua lorem ipsum, 1234 - Nome do bairro, Nome da cidade/UF - CEP 12345-000</h2>
+                    </div>
+                    <div className="informacao-localizacao-card-inicio">
+                        <FaWhatsapp className="icon-informacao-localizacao-card-inicio"/>
+                        <h2>+55 (11) 9 1234-5678</h2>
+                    </div>
+                    <div className="informacao-localizacao-card-inicio">
+                        <RiPhoneLine className="icon-informacao-localizacao-card-inicio"/>
+                        <h2>+55 (11) 9 1234-5678</h2>
+                    </div>
+                    <div className="informacao-localizacao-card-inicio">
+                        <MdOutlineEmail className="icon-informacao-localizacao-card-inicio"/>
+                        <h2>exemplo@mail.com</h2>
+                    </div>
+                </div>
             </div>
         </div>
     )
