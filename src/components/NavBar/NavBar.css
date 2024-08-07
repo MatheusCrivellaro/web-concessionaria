@@ -39,11 +39,11 @@ nav {
 .active-button-nav {
     border: 1px solid #DBF3FF;
     background-color: #F0FAFF;
-    color: #00ACFF;
 }
 
 .text-active-button-nav {
     font-weight: bold;
+    color: #00ACFF;
 }
 
 .deactivated-button-nav {
@@ -65,4 +65,24 @@ nav {
 .text-button-nav {
     margin: 0;
     font-size: 12px;
+    text-decoration: none;
+}
+
+.whatsapp-button-nav {
+    border: 0;
+    background-color: #26A95F;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    margin: 4px 8px;
+}
+
+.text-whatsapp-button-nav {
+    color: #FAFAFA;
+    font-size: 14px;
+}
+
+.icon-wpp-nav {
+    color: #FAFAFA;
+    margin: 0 4px;
 }
