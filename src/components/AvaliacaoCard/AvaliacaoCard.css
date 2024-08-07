@@ -1,0 +1,26 @@
+
+.avaliacoes-card-inicio {
+    padding: 16px 8px;
+    margin-bottom: 16px;
+    border-bottom: #D1D1DB solid 1px;
+}
+
+.title-card-avaliacoes-inicio {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+
+}
+
+.title-card-avaliacoes-inicio h1 {
+    color: #3F3F50;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 8px;
+}
+
+.avaliacoes-card-inicio h2 {
+    color: #3F3F50;
+    font-size: 16px;
+    font-weight: normal;
+}

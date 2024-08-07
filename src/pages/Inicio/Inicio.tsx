@@ -9,6 +9,9 @@ import iconInformation1 from "../../images/icon.png"
 import iconInformation2 from "../../images/icon(1).png"
 import iconInformation3 from "../../images/icon(2).png"
 import imageCategoriaInicio from "../../images/img-categoria.png"
+import imageAvaliacoesInicio from "../../images/amico.png"
+import imgPerfil from "../../images/img.png"
+import AvaliacaoCard from "../../components/AvaliacaoCard/AvaliacaoCard.tsx";
 
 const Inicio = () => {
     return (
@@ -62,6 +65,24 @@ const Inicio = () => {
                 <div className="col-12 d-flex justify-content-center">
                     <Link to="/" className="button-veiculos-destaque-inicio">Ver mais</Link>
                 </div>
+            </div>
+            <div className="avaliacoes-div-inicio">
+                <div className="avaliacoes-cards-div-inicio">
+                    <h1>As avaliações dos nossos clientes</h1>
+                    <AvaliacaoCard title="Nome do Cliente" description="“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex ea commodo consequat.”" image={imgPerfil}
+                    />
+                    <AvaliacaoCard title="Nome do Cliente" description="“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex ea commodo consequat.”" image={imgPerfil}
+                    />
+                    <AvaliacaoCard title="Nome do Cliente" description="“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex ea commodo consequat.”" image={imgPerfil}
+                    />
+                </div>
+                <img src={imageAvaliacoesInicio} alt="" />
             </div>
         </div>
     )

@@ -100,3 +100,19 @@
     border-radius: 8px;
 }
 
+.avaliacoes-div-inicio {
+    padding: 24px 48px;
+    display: flex;
+}
+
+.avaliacoes-cards-div-inicio {
+    margin-right: 48px;
+}
+
+.avaliacoes-cards-div-inicio h1 {
+    color: #121217;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 24px;
+}
+
