@@ -20,8 +20,7 @@ nav {
 .title {
     font-size: 16px;
     font-weight: bold;
-    margin: 0;
-    margin-right: 48px;
+    margin: 0 48px 0 0;
 }
 
 .search-nav {

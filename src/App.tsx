@@ -6,6 +6,7 @@ import Financiamento from './pages/financiamento/Financiamento'
 import Sobre from './pages/sobre-nos/Sobre'
 import Veiculos from './pages/veiculos/Veiculos'
 import Venda from './pages/venda/Venda'
+import Footer from "./components/Footer/Footer.tsx";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/venda-seu-veiculo" element={<Venda />} />
         <Route path="/financiamento" element={<Financiamento />} />
       </Routes>
+      <Footer />
     </div>
   )
 }
