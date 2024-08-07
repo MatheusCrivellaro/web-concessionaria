@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import InformationCard from "../../components/InformationCard/InformationCard.tsx";
 import CategoriaCard from "../../components/CategoriaCard/CategoriaCard.tsx";
 import VeiculosDestaqueCard from "../../components/VeiculosDestaqueCard/VeiculosDestaqueCard.tsx";
+import imageVeiculoDestaque from "../../../public/img-veiculo-destaque.png"
 
 const Inicio = () => {
     return (
@@ -44,17 +45,17 @@ const Inicio = () => {
             <div className="veiculos-destaque-div-inicio">
                 <h1>Veículos em destaque</h1>
                 <div className="veiculos-destaque-cards-div-inicio row">
-                    <VeiculosDestaqueCard image="../../../public/img-veiculo-destaque.png" title="Nome do carro" motor="2.0 16V Flex Completo Manual" preco="R$100.000,00" ano="2020/2021" km="0"/>
-                    <VeiculosDestaqueCard image="../../../public/img-veiculo-destaque.png" title="Nome do carro" motor="2.0 16V Flex Completo Manual" preco="R$100.000,00" ano="2020/2021" km="0"/>
-                    <VeiculosDestaqueCard image="../../../public/img-veiculo-destaque.png" title="Nome do carro" motor="2.0 16V Flex Completo Manual" preco="R$100.000,00" ano="2020/2021" km="0"/>
-                    <VeiculosDestaqueCard image="../../../public/img-veiculo-destaque.png" title="Nome do carro" motor="2.0 16V Flex Completo Manual" preco="R$100.000,00" ano="2020/2021" km="0"/>
-                    <VeiculosDestaqueCard image="../../../public/img-veiculo-destaque.png" title="Nome do carro" motor="2.0 16V Flex Completo Manual" preco="R$100.000,00" ano="2020/2021" km="0"/>
-                    <VeiculosDestaqueCard image="../../../public/img-veiculo-destaque.png" title="Nome do carro" motor="2.0 16V Flex Completo Manual" preco="R$100.000,00" ano="2020/2021" km="0"/>
-                    <VeiculosDestaqueCard image="../../../public/img-veiculo-destaque.png" title="Nome do carro" motor="2.0 16V Flex Completo Manual" preco="R$100.000,00" ano="2020/2021" km="0"/>
-                    <VeiculosDestaqueCard image="../../../public/img-veiculo-destaque.png" title="Nome do carro" motor="2.0 16V Flex Completo Manual" preco="R$100.000,00" ano="2020/2021" km="0"/>
+                    <VeiculosDestaqueCard image={imageVeiculoDestaque} title="Nome do carro" motor="2.0 16V Flex Completo Manual" preco="R$100.000,00" ano="2020/2021" km="0"/>
+                    <VeiculosDestaqueCard image={imageVeiculoDestaque} title="Nome do carro" motor="2.0 16V Flex Completo Manual" preco="R$100.000,00" ano="2020/2021" km="0"/>
+                    <VeiculosDestaqueCard image={imageVeiculoDestaque} title="Nome do carro" motor="2.0 16V Flex Completo Manual" preco="R$100.000,00" ano="2020/2021" km="0"/>
+                    <VeiculosDestaqueCard image={imageVeiculoDestaque} title="Nome do carro" motor="2.0 16V Flex Completo Manual" preco="R$100.000,00" ano="2020/2021" km="0"/>
+                    <VeiculosDestaqueCard image={imageVeiculoDestaque} title="Nome do carro" motor="2.0 16V Flex Completo Manual" preco="R$100.000,00" ano="2020/2021" km="0"/>
+                    <VeiculosDestaqueCard image={imageVeiculoDestaque} title="Nome do carro" motor="2.0 16V Flex Completo Manual" preco="R$100.000,00" ano="2020/2021" km="0"/>
+                    <VeiculosDestaqueCard image={imageVeiculoDestaque} title="Nome do carro" motor="2.0 16V Flex Completo Manual" preco="R$100.000,00" ano="2020/2021" km="0"/>
+                    <VeiculosDestaqueCard image={imageVeiculoDestaque} title="Nome do carro" motor="2.0 16V Flex Completo Manual" preco="R$100.000,00" ano="2020/2021" km="0"/>
                 </div>
                 <div className="col-12 d-flex justify-content-center">
-                    <Link to="/" className="button-veiculos-destaque-inicio ">Ver mais</Link>
+                    <Link to="/" className="button-veiculos-destaque-inicio">Ver mais</Link>
                 </div>
             </div>
         </div>
