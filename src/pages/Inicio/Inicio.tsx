@@ -3,7 +3,12 @@ import {Link} from "react-router-dom";
 import InformationCard from "../../components/InformationCard/InformationCard.tsx";
 import CategoriaCard from "../../components/CategoriaCard/CategoriaCard.tsx";
 import VeiculosDestaqueCard from "../../components/VeiculosDestaqueCard/VeiculosDestaqueCard.tsx";
-import imageVeiculoDestaque from "../../../public/img-veiculo-destaque.png"
+import imageVeiculoDestaque from "../../images/img-veiculo-destaque.png"
+import imageBannerinicio from "../../images/Group 1.png"
+import iconInformation1 from "../../images/icon.png"
+import iconInformation2 from "../../images/icon(1).png"
+import iconInformation3 from "../../images/icon(2).png"
+import imageCategoriaInicio from "../../images/img-categoria.png"
 
 const Inicio = () => {
     return (
@@ -26,20 +31,20 @@ const Inicio = () => {
                         </div>
                     </div>
                 </div>
-                <img src="../../../public/Group%201.png" alt=""/>
+                <img src={imageBannerinicio} alt=""/>
             </div>
             <div className="informations-div-inicio row">
-                <InformationCard title="Carros novos e semi-novos" description="Nós proporcionamos para você condições especiais para poder adquirir o veículo dos seus sonhos! " image="../../../public/icon.png"/>
-                <InformationCard title="Compra de veículos" description="Compramos seu veículo sem burocracia, com agilidade na análise e preço justo." image="../../../public/icon(1).png"/>
-                <InformationCard title="Financie o seu sonho" description="Temos como parceiras as principais financeiras, isso garante melhores taxas para você!" image="../../../public/icon(2).png"/>
+                <InformationCard title="Carros novos e semi-novos" description="Nós proporcionamos para você condições especiais para poder adquirir o veículo dos seus sonhos! " image={iconInformation1}/>
+                <InformationCard title="Compra de veículos" description="Compramos seu veículo sem burocracia, com agilidade na análise e preço justo." image={iconInformation2}/>
+                <InformationCard title="Financie o seu sonho" description="Temos como parceiras as principais financeiras, isso garante melhores taxas para você!" image={iconInformation3}/>
             </div>
             <div className="categorias-div-inicio">
                 <h1>Categorias</h1>
                 <div className="categorias-cards-div-inicio">
-                    <CategoriaCard image="../../../public/img-categoria.png" title="Nome da Categoria" />
-                    <CategoriaCard image="../../../public/img-categoria.png" title="Nome da Categoria" />
-                    <CategoriaCard image="../../../public/img-categoria.png" title="Nome da Categoria" />
-                    <CategoriaCard image="../../../public/img-categoria.png" title="Nome da Categoria" />
+                    <CategoriaCard image={imageCategoriaInicio} title="Nome da Categoria" />
+                    <CategoriaCard image={imageCategoriaInicio} title="Nome da Categoria" />
+                    <CategoriaCard image={imageCategoriaInicio} title="Nome da Categoria" />
+                    <CategoriaCard image={imageCategoriaInicio} title="Nome da Categoria" />
                 </div>
             </div>
             <div className="veiculos-destaque-div-inicio">
