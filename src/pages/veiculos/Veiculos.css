@@ -1,0 +1,119 @@
+.veiculos {
+    width: 100%;
+}
+
+.filtro-div-veiculos {
+    height: 100vh;
+    background: #FAFAFA;
+    padding: 24px;
+    border-right: #EBEBEF 1px solid;
+}
+
+.cards-div-veiculos {
+    background: #FAFAFA;
+    padding: 24px 0;
+}
+
+.menu-filtros-div-veiculos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.menu-filtros-div-veiculos h1 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    color: #121217;
+}
+
+.clear-filtro-button {
+    background-color: #FAFAFA;
+    border: #D1D1DB solid 1px;
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-left: 8px;
+    width: 100%;
+}
+
+.filtro-button {
+    background-color: #00ACFF;
+    color: #FAFAFA;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-size: 14px;
+    width: 100%;
+    height: 100%;
+}
+
+.icon-button-filtro {
+    margin-left: 4px;
+}
+
+.div-clear-filtro-button {
+    padding-right: 8px;
+}
+
+.div-filtro-button {
+    padding-left: 8px;
+}
+
+.menu-preco-filtros-div-veiculos h1 {
+    font-size: 14px;
+    color: #121217;
+    margin: 0;
+}
+
+.menu-preco-filtros-div-veiculos label {
+    color: #121217;
+    font-size: 14px;
+    border-right: 1px solid #EBEBEF;
+    padding: 8px 16px;
+}
+
+.menu-preco-filtros-div-veiculos input {
+    border: none;
+    background-color: #FAFAFA;
+    padding: 8px;
+    color: #121217;
+    font-size: 14px;
+}
+
+.menu-preco-filtros-div-veiculos input:focus {
+    outline: none;
+}
+
+.menu-preco-filtros-div-veiculos input::placeholder {
+    color: #6C6C89;
+    font-size: 14px;
+}
+
+.menu-preco-filtros-div-veiculos div {
+    border: 1px solid #D1D1DB;
+    border-radius: 8px;
+    margin-top: 12px;
+}
+
+.menu-preco-filtros-div-veiculos {
+    margin-bottom: 32px;
+}
+
+.marcas-cards-div-veiculos {
+    padding-bottom: 24px;
+    width: 100%;
+}
+
+.cards-itens-div-veiculos {
+    padding: 24px;
+    width: 100%;
+}
+
+.cards-itens-div-veiculos h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 24px;
+    color: #121217;
+}

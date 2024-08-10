@@ -1,0 +1,46 @@
+.div-options-filtro-veiculos {
+    margin-bottom: 32px;
+}
+
+.div-options-filtro-veiculos h1 {
+    font-size: 14px;
+    color: #121217;
+    margin-bottom: 16px;
+}
+
+.div-options-filtro-veiculos input {
+    margin-right: 12px;
+}
+
+.div-options-filtro-veiculos label {
+    font-size: 14px;
+    margin-right: 24px;
+}
+
+.div-options-radios-veiculos {
+    display: flex;
+}
+
+
+.div-options-filtro-veiculos {
+    margin-bottom: 32px;
+}
+
+.div-options-filtro-veiculos h1 {
+    font-size: 14px;
+    color: #121217;
+    margin-bottom: 16px;
+}
+
+.div-options-filtro-veiculos input {
+    margin-right: 12px;
+}
+
+.div-options-filtro-veiculos label {
+    font-size: 14px;
+    margin-right: 24px;
+}
+
+.div-options-radios-veiculos {
+    display: flex;
+}

@@ -54,3 +54,7 @@
     text-align: center;
     padding: 4px;
 }
+
+.img-veiculos-destaque-card {
+    border-radius: 8px;
+}

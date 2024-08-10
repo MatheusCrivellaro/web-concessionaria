@@ -7,10 +7,10 @@ type props = {
 
 const CategoriaCard = ({ image, title }:props) => {
     return (
-        <div className="categorias-card-inicio">
-            <img src={image} alt=""/>
+        <label htmlFor={title} className="categorias-card-inicio">
+            <img src={image} alt="" width="180" height="100"/>
             <h2>{title}</h2>
-        </div>
+        </label>
     )
 }
 
