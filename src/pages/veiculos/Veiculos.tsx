@@ -38,8 +38,8 @@ const Veiculos = () => {
     };
 
     const handleClearFilters = () => {
-        setSelectedMarcas([]);
-        setSelectedColors([]);
+        setSelectedMarcas(["todos"]);
+        setSelectedColors(["todos"]);
     }
 
     useEffect(() => {
@@ -60,8 +60,8 @@ const Veiculos = () => {
         <div className="veiculos row">
             <div className="filtro-div-veiculos col-3">
                 <div className="menu-filtros-div-veiculos">
-                    <h1>Filtrar</h1>
-                    <div className="d-flex col-7">
+                    <h1 className="col-12">Filtrar</h1>
+                    <div className="d-flex col-12">
                         <div className="col-6 div-clear-filtro-button">
                             <button className="clear-filtro-button" onClick={handleClearFilters}>Limpar Filtros</button>
                         </div>

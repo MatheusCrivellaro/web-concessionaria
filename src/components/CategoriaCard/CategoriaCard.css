@@ -2,11 +2,13 @@
     margin-right: 24px;
     border: 0;
     background: none;
-    transition: 0.3s;
+    transition: 0.2s;
+    border-radius: 8px;
+    padding: 12px;
 }
 
 .categorias-card-inicio:hover {
-    background: #6C6C89;
+    background: rgba(18, 18, 23, 20%);
 }
 
 .categorias-card-inicio img {

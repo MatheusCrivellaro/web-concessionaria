@@ -12,30 +12,25 @@
 .cards-div-veiculos {
     background: #FAFAFA;
     padding: 24px 0;
-    width: 100%;
 }
 
 .menu-filtros-div-veiculos {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     margin-bottom: 32px;
 }
 
 .menu-filtros-div-veiculos h1 {
     font-size: 16px;
     font-weight: bold;
-    margin: 0;
+    margin-bottom: 12px;
     color: #121217;
 }
 
 .clear-filtro-button {
     background-color: #FAFAFA;
     border: #D1D1DB solid 1px;
-    padding: 4px 8px;
+    padding: 4px;
     border-radius: 8px;
     font-size: 14px;
-    margin-left: 8px;
     width: 100%;
 }
 
@@ -43,7 +38,7 @@
     background-color: #00ACFF;
     color: #FAFAFA;
     border: none;
-    padding: 4px 8px;
+    padding: 4px;
     border-radius: 8px;
     font-size: 14px;
     width: 100%;
