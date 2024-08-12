@@ -3,18 +3,20 @@
     border: 1px solid #EBEBEF;
     background-color: #FAFAFA;
     border-radius: 12px;
-    width: min-content;
-    margin-right: 24px;
-    margin-bottom: 24px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 100%;
+}
+
+.card-veiculo-div-estoque {
+    margin-bottom: 24px;
 }
 
 .card-veiculo-estoque img {
     margin-bottom: 12px;
-    width: 208px;
     border-radius: 8px;
+    width: 100%;
 }
 
 .card-veiculo-estoque h1 {

@@ -1,5 +1,5 @@
 import './Inicio.css'
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import InformationCard from "../../components/InformationCard/InformationCard.tsx";
 import VeiculosDestaqueCard from "../../components/VeiculosDestaqueCard/VeiculosDestaqueCard.tsx";
 import imageBannerinicio from "../../images/Group 1.png"
@@ -25,6 +25,12 @@ const Inicio = () => {
     const { marcas  } = useCollects(data)
     useFiltersVehicles(data);
 
+    const navigate = useNavigate();
+
+    const handleSelectedMarca = (selectedMarca: string) => {
+        navigate('/veiculos', { state: { marcaSelecionada: selectedMarca } });
+    };
+
     return (
         <div className="inicio">
             <div className="banner-div-inicio">
@@ -45,7 +51,7 @@ const Inicio = () => {
                         </div>
                     </div>
                 </div>
-                <img src={imageBannerinicio} alt=""/>
+                <img src={imageBannerinicio} alt="" />
             </div>
             <div className="informations-div-inicio row">
                 <InformationCard title="Carros novos e semi-novos" description="Nós proporcionamos para você condições especiais para poder adquirir o veículo dos seus sonhos! " image={iconInformation1}/>
@@ -53,7 +59,7 @@ const Inicio = () => {
                 <InformationCard title="Financie o seu sonho" description="Temos como parceiras as principais financeiras, isso garante melhores taxas para você!" image={iconInformation3}/>
             </div>
 
-            <CarouselCategorias marcas={marcas} padding={1}/>
+            <CarouselCategorias marcas={marcas} padding={0} handleSelectedMarca={handleSelectedMarca}/>
 
             <div className="veiculos-destaque-div-inicio" id="veiculos-destaque">
                 <h1>Veículos em destaque</h1>

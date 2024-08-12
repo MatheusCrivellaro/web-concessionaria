@@ -15,7 +15,7 @@
 }
 
 .sm-padding {
-    padding: 0 32px;
+    padding: 0 48px;
 }
 
 .categorias-div-inicio h1 {
@@ -30,7 +30,7 @@
 }
 
 .sm-padding-title {
-    padding: 0 32px;
+    padding: 0 48px;
 }
 
 .buttons-categorias-div-inicio {
@@ -69,5 +69,5 @@
 }
 
 .categorias-carousel-inicio {
-    position: relative;
+    display: flex;
 }

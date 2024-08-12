@@ -6,11 +6,15 @@ import useFiltersVehicles from "../../hooks/useFiltersVehicles.tsx";
 import CarouselCategorias from "../../components/CarouselCategorias/CarouselCategorias.tsx";
 import {LuFilter} from "react-icons/lu";
 import CardVeiculoEstoque from "../../components/CardVeiculoEstoque/CardVeiculoEstoque.tsx";
-import {useEffect, useState} from "react";
 import {Vehicle} from "../../interfaces/Vehicle.ts";
+import {useEffect, useState} from "react";
+import {useLocation} from "react-router-dom";
 
 
 const Veiculos = () => {
+
+    const location = useLocation();
+    const { marcaSelecionada } = location.state || {};
 
     const { data } = useGetStock();
     const { marcas, cores } = useCollects(data)
@@ -19,13 +23,9 @@ const Veiculos = () => {
     const [selectedMarcas, setSelectedMarcas] = useState<string[]>([]);
     const { filteredVehicles, setFilters } = useFiltersVehicles(data);
 
-    // const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    //     const { name, value } = e.target;
-    //     setFilters(prevFilters => ({
-    //         ...prevFilters,
-    //         [name]: value,
-    //     }));
-    // };
+    const handleSelectMarca = (marcaSelect: string) => {
+        setSelectedMarcas([marcaSelect])
+    }
 
     const handleColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target;
@@ -37,7 +37,14 @@ const Veiculos = () => {
         setSelectedMarcas([value]);
     };
 
+    const handleClearFilters = () => {
+        setSelectedMarcas([]);
+        setSelectedColors([]);
+    }
+
     useEffect(() => {
+        if (selectedMarcas.length===0)
+            setSelectedMarcas([marcaSelecionada])
         setFilters(prevFilters => ({
             ...prevFilters,
             cores: selectedColors,
@@ -56,7 +63,7 @@ const Veiculos = () => {
                     <h1>Filtrar</h1>
                     <div className="d-flex col-7">
                         <div className="col-6 div-clear-filtro-button">
-                            <button className="clear-filtro-button">Limpar Filtros</button>
+                            <button className="clear-filtro-button" onClick={handleClearFilters}>Limpar Filtros</button>
                         </div>
                         <div className="col-6 div-filtro-button">
                             <button className="filtro-button">Filtrar <LuFilter className="icon-button-filtro"/></button>
@@ -74,20 +81,28 @@ const Veiculos = () => {
                         <input type="text" placeholder="R$1.000.000,00" id="ate"/>
                     </div>
                 </div>
-                <OptionFiltroContainer title="Marcas" group={"marcas"} value={marcas} handle={handleMarcaChange}/>
-                <OptionFiltroContainer title="Cores" group={"cores"} value={cores} handle={handleColorChange}/>
+                <OptionFiltroContainer title="Marcas" group={"marcas"} value={marcas} handle={handleMarcaChange} selected={selectedMarcas} todos={true}/>
+                <OptionFiltroContainer title="Cores" group={"cores"} value={cores} handle={handleColorChange} selected={selectedColors} todos={true}/>
 
             </div>
             <div className="cards-div-veiculos col-9">
                 <div className="marcas-cards-div-veiculos">
-                    <CarouselCategorias marcas={marcas} padding={0}/>
+                    <CarouselCategorias marcas={marcas} padding={0} handleSelectedMarca={handleSelectMarca}/>
                 </div>
-                <div className="cards-itens-div-veiculos row">
+                {filteredVehicles.length === 0 ?
+                    <div className="cards-itens-div-none-veiculos">
+                        <h1 className="col-12">Veículos em destaque</h1>
+                        <h2>Nenhum veículo foi encontrado :(</h2>
+                    </div> :
+                    <div className="cards-itens-div-veiculos row">
                     <h1 className="col-12">Veículos em destaque</h1>
-                    {filteredVehicles?.map(value =>
-                        <CardVeiculoEstoque image={getPrimeiraFotoUri(value)} title={value.modelo} motor={value.versao} preco={value.precoVenda} ano={value.anoModelo} km={value.km} key={value.codigo}/>
-                    )}
-                </div>
+                        {filteredVehicles.length === 0 ? <h2>Nada encontrado</h2> : filteredVehicles?.map(value =>
+                            <CardVeiculoEstoque image={getPrimeiraFotoUri(value)} title={value.modelo}
+                                                motor={value.versao} preco={value.precoVenda} ano={value.anoModelo}
+                                                km={value.km} key={value.codigo}/>
+                        )}
+                    </div>
+                }
             </div>
         </div>
     )

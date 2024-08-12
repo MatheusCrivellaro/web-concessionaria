@@ -1,7 +1,7 @@
 import './CarouselCategorias.css'
 import CategoriaCard from "../CategoriaCard/CategoriaCard.tsx";
 import {IoIosArrowBack, IoIosArrowForward} from "react-icons/io";
-import React, {useRef} from "react";
+import React, {ChangeEvent, useRef} from "react";
 import honda from "../../images/marcas/Honda_Logo.svg.png";
 import fiat from "../../images/marcas/fiat-logo-2-1.png";
 import mercedesBenz from "../../images/marcas/mercedes-benz-logo-8.png";
@@ -18,10 +18,11 @@ import imagemGenerica from '../../images/img-categoria.png'
 
 type props = {
     marcas: string[],
-    padding: number
+    padding: number,
+    handleSelectedMarca: (selectMarca: string) => void
 }
 
-const CarouselCategorias = ({ marcas, padding }: props) => {
+const CarouselCategorias = ({ marcas, padding, handleSelectedMarca }: props) => {
 
     const carouselMarcas = useRef(null)
 
@@ -63,21 +64,22 @@ const CarouselCategorias = ({ marcas, padding }: props) => {
         <div className="categorias-div-inicio">
             <h1 className={padding === 1 ? 'lg-padding-title' : 'sm-padding-title'}>Categorias</h1>
             <div className="categorias-carousel-inicio">
-                <div className={padding === 1 ? 'categorias-cards-div-inicio lg-padding' : 'categorias-cards-div-inicio sm-padding'} ref={carouselMarcas}>
+                <button onClick={handleRightClic}><IoIosArrowBack/></button>
+                <div
+                    className={padding === 1 ? 'categorias-cards-div-inicio lg-padding' : 'categorias-cards-div-inicio sm-padding'}
+                    ref={carouselMarcas}>
                     {
                         marcas.map((i, index) =>
                             <CategoriaCard
                                 image={getImgMarca(i)}
                                 title={i}
                                 key={index + "categoria"}
+                                handleSelectedMarca={handleSelectedMarca}
                             />
                         )
                     }
                 </div>
-                <div className={padding === 1 ? 'buttons-categorias-div-inicio lg-padding' : 'buttons-categorias-div-inicio sm-padding'}>
-                    <button onClick={handleRightClic}><IoIosArrowBack/></button>
-                    <button onClick={handleLeftClic}><IoIosArrowForward/></button>
-                </div>
+                <button onClick={handleLeftClic}><IoIosArrowForward/></button>
             </div>
         </div>
     )

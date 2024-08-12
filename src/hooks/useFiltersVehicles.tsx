@@ -15,11 +15,13 @@ const useFilteredVehicles = (vehicles: Vehicle[] = [], initialFilters: Filters =
     }
     if (filters.marcas && filters.marcas.length>0) {
       updateAllowed = true
-      result = result.filter(vehicle => filters.marcas?.includes(vehicle.marca.toLowerCase() as string));
+      if (!filters.marcas.includes("todos"))
+        result = result.filter(vehicle => filters.marcas?.includes(vehicle.marca.toLowerCase() as string));
     }
     if (filters.cores && filters.cores.length>0){
       updateAllowed = true
-      result = result.filter(vehicle => filters.cores?.includes(vehicle.cor.toLowerCase() as string));
+      if (!filters.cores.includes("todos"))
+        result = result.filter(vehicle => filters.cores?.includes(vehicle.cor.toLowerCase() as string));
     }
     if (updateAllowed){
       setFilteredVehicles(result)

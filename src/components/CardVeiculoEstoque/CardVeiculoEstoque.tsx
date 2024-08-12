@@ -20,15 +20,17 @@ const trataFoto = (image: string | undefined) => {
 
 const CardVeiculoEstoque = ({ image, title, motor, preco, ano, km }:props) => {
     return (
-        <div className="card-veiculo-estoque">
-            <img src={trataFoto(image)} alt="" className=""/>
-            <div>
-                <h1>{title}</h1>
-                <h2>{motor}</h2>
-                <h3>Por <span>R${preco}</span></h3>
-                <div className="ano-km-div-card-veiculo-estoque">
-                    <p>{ano}</p>
-                    <p>{km} Km</p>
+        <div className="col-3 card-veiculo-div-estoque">
+            <div className="card-veiculo-estoque">
+                <div>
+                    <img src={trataFoto(image)} alt="" className=""/>
+                    <h1>{title}</h1>
+                    <h2>{motor}</h2>
+                    <h3>Por <span>R${preco}</span></h3>
+                    <div className="ano-km-div-card-veiculo-estoque">
+                        <p>{ano}</p>
+                        <p>{km} Km</p>
+                    </div>
                 </div>
                 <div className="d-flex">
                     <Link to="/" className="button-card-veiculos-estoque">Ver parcelas</Link>
