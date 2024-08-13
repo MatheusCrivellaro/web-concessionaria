@@ -17,19 +17,58 @@ const Veiculos = () => {
     const { marcaSelecionada } = location.state || {};
 
     const { data } = useGetStock();
-    const { marcas, cores } = useCollects(data)
+    const { marcas, cores, cambios, carrocerias, combustiveis } = useCollects(data)
     useFiltersVehicles(data);
     const [selectedColors, setSelectedColors] = useState<string[]>([]);
     const [selectedMarcas, setSelectedMarcas] = useState<string[]>([]);
+    const [selectedCambios, setSelectedCambios] = useState<string[]>([]);
+    const [selectedCombustivel, setSelectedCombustivel] = useState<string[]>([]);
+    const [selectedCarroceria, setSelectedCarroceria] = useState<string[]>([]);
+    const [precoMin, setPrecoMin] = useState<number>();
+    const [precoMax, setPrecoMax] = useState<number>();
+
     const { filteredVehicles, setFilters } = useFiltersVehicles(data);
+
+    function extractNumbers(input: string): number {
+        return parseInt(input.replace(/\D/g, ''), 10)
+    }
 
     const handleSelectMarca = (marcaSelect: string) => {
         setSelectedMarcas([marcaSelect])
     }
 
+    const handlePrecoMinChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { value } = e.target;
+        if (/^\d*$/.test(value) && value.length<=11)
+            setPrecoMin(extractNumbers(value));
+    };
+
+    const handlePrecoMaxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { value } = e.target;
+
+        if (/^\d*$/.test(value) && value.length<=11) {
+            setPrecoMax(extractNumbers(value));
+        }
+    };
+
     const handleColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target;
         setSelectedColors([value]);
+    };
+
+    const handleCarroceriaChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { value } = e.target;
+        setSelectedCarroceria([value]);
+    };
+
+    const handleCambioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { value } = e.target;
+        setSelectedCambios([value]);
+    };
+
+    const handleCombustivelChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { value } = e.target;
+        setSelectedCombustivel([value]);
     };
 
     const handleMarcaChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -40,6 +79,9 @@ const Veiculos = () => {
     const handleClearFilters = () => {
         setSelectedMarcas(["todos"]);
         setSelectedColors(["todos"]);
+        setSelectedCambios(["todos"]);
+        setSelectedCarroceria(["todos"]);
+        setSelectedCombustivel(["todos"]);
     }
 
     useEffect(() => {
@@ -49,8 +91,13 @@ const Veiculos = () => {
             ...prevFilters,
             cores: selectedColors,
             marcas: selectedMarcas,
+            precoMax: precoMax,
+            precoMin: precoMin,
+            cambio: selectedCambios,
+            carroceria: selectedCarroceria,
+            combustivel: selectedCombustivel,
         }));
-    }, [selectedColors, selectedMarcas, setFilters]);
+    }, [precoMin, precoMax, selectedColors, selectedMarcas, setFilters, selectedCarroceria, selectedCambios, selectedCombustivel]);
 
     const getPrimeiraFotoUri = (veiculo: Vehicle) => {
         return veiculo.fotos.foto[0]?.uri
@@ -72,18 +119,20 @@ const Veiculos = () => {
                 </div>
                 <div className="menu-preco-filtros-div-veiculos">
                     <h1>Preço</h1>
-                    <div>
+                    <div className="div-input-preco">
                         <label htmlFor="de">De</label>
-                        <input type="text" placeholder="R$0,00" id="de"/>
+                        <input type="number" placeholder="R$0,00" id="de" value={precoMin} min="0" max={precoMax} step="10000" onChange={handlePrecoMinChange}/>
                     </div>
-                    <div>
+                    <div className="div-input-preco">
                         <label htmlFor="ate">Até</label>
-                        <input type="text" placeholder="R$1.000.000,00" id="ate"/>
+                        <input type="number" placeholder="R$1.000.000,00" id="ate" value={precoMax} min={precoMin} max="5000000" step="10000" onChange={handlePrecoMaxChange}/>
                     </div>
                 </div>
                 <OptionFiltroContainer title="Marcas" group={"marcas"} value={marcas} handle={handleMarcaChange} selected={selectedMarcas} todos={true}/>
                 <OptionFiltroContainer title="Cores" group={"cores"} value={cores} handle={handleColorChange} selected={selectedColors} todos={true}/>
-
+                <OptionFiltroContainer title="Câmbio" group={"cambio"} value={cambios} handle={handleCambioChange} selected={selectedCambios} todos={true}/>
+                <OptionFiltroContainer title="Combustível" group={"combustivel"} value={combustiveis} handle={handleCombustivelChange} selected={selectedCombustivel} todos={true}/>
+                <OptionFiltroContainer title="Carroceria" group={"carroceria"} value={carrocerias} handle={handleCarroceriaChange} selected={selectedCarroceria} todos={true}/>
             </div>
             <div className="cards-div-veiculos col-9">
                 <div className="marcas-cards-div-veiculos">

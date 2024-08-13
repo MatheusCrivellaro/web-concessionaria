@@ -3,7 +3,8 @@
 }
 
 .filtro-div-veiculos {
-    height: 100vh;
+    min-height: 100vh;
+    height: min-content;
     background: #FAFAFA;
     padding: 24px;
     border-right: #EBEBEF 1px solid;
@@ -95,6 +96,10 @@
 
 .menu-preco-filtros-div-veiculos {
     margin-bottom: 32px;
+}
+
+.div-input-preco input {
+    width: max-content;
 }
 
 .marcas-cards-div-veiculos {
