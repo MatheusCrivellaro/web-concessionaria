@@ -20,7 +20,7 @@ const Veiculos = () => {
     const { marcas, cores, cambios, carrocerias, combustiveis } = useCollects(data)
     useFiltersVehicles(data);
     const [selectedColors, setSelectedColors] = useState<string[]>([]);
-    const [selectedMarcas, setSelectedMarcas] = useState<string[]>([]);
+    const [selectedMarcas, setSelectedMarcas] = useState<string[]>(["todos"]);
     const [selectedCambios, setSelectedCambios] = useState<string[]>([]);
     const [selectedCombustivel, setSelectedCombustivel] = useState<string[]>([]);
     const [selectedCarroceria, setSelectedCarroceria] = useState<string[]>([]);
@@ -97,7 +97,7 @@ const Veiculos = () => {
             carroceria: selectedCarroceria,
             combustivel: selectedCombustivel,
         }));
-    }, [precoMin, precoMax, selectedColors, selectedMarcas, setFilters, selectedCarroceria, selectedCambios, selectedCombustivel]);
+    }, [precoMin, precoMax, selectedColors, selectedMarcas, setFilters, selectedCarroceria, selectedCambios, selectedCombustivel    ]);
 
     const getPrimeiraFotoUri = (veiculo: Vehicle) => {
         return veiculo.fotos.foto[0]?.uri
