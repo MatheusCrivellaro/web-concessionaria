@@ -13,7 +13,7 @@ type props = {
 const VeiculosDestaqueCard = ({ image, title, motor, preco, ano, km }:props) => {
     return (
         <div className="col-3">
-            <div className="veiculos-destaque-card">
+            <div className="veiculos-destaque-card shadow">
                 <img src={image} alt="" className="img-veiculos-destaque-card"/>
                 <h1>{title}</h1>
                 <h2>{motor}</h2>

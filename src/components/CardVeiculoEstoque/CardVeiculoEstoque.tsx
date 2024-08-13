@@ -21,7 +21,7 @@ const trataFoto = (image: string | undefined) => {
 const CardVeiculoEstoque = ({ image, title, motor, preco, ano, km }:props) => {
     return (
         <div className="col-3 card-veiculo-div-estoque">
-            <div className="card-veiculo-estoque">
+            <div className="card-veiculo-estoque shadow">
                 <div>
                     <img src={trataFoto(image)} alt="" className=""/>
                     <h1>{title}</h1>

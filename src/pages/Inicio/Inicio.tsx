@@ -66,7 +66,7 @@ const Inicio = () => {
                 <div className="veiculos-destaque-cards-div-inicio row">
                     {data?.slice(0, 8).map((i: Vehicle, index) =>
                         <VeiculosDestaqueCard image={i.fotos.foto[0].uri} title={i.modelo}
-                                              motor="2.0 16V Flex Completo Manual" preco="R$100.000,00" ano="2020/2021"
+                                              motor="2.0 16V Flex Completo Manual" preco={i.precoVenda} ano="2020/2021"
                                               km="0" key={"carro" + index}/>
                     )}
                 </div>
