@@ -2,14 +2,11 @@ import './CardVeiculoEstoque.css'
 
 import {Link} from "react-router-dom";
 import imagemGenerica from '../../images/img-categoria.png'
+import {Vehicle} from "../../interfaces/Vehicle.ts";
 
 type props = {
     image: string,
-    title: string,
-    motor: string,
-    preco: string,
-    ano: string,
-    km: string
+    veiculo: Vehicle
 }
 
 const trataFoto = (image: string | undefined) => {
@@ -18,7 +15,7 @@ const trataFoto = (image: string | undefined) => {
     return image
 }
 
-const CardVeiculoEstoque = ({ image, title, motor, preco, ano, km }:props) => {
+const CardVeiculoEstoque = ({ image, veiculo }:props) => {
     return (
         <div className="col-3 card-veiculo-div-estoque">
             <div className="card-veiculo-estoque shadow">
@@ -26,13 +23,13 @@ const CardVeiculoEstoque = ({ image, title, motor, preco, ano, km }:props) => {
                     <img src={trataFoto(image)} alt="" className=""/>
                 </div>
                 <div>
-                    <h1>{title}</h1>
-                    <h2>{motor}</h2>
-                    <h3>Por <span>R${preco}</span></h3>
+                    <h1>{veiculo.marca + " " + veiculo.modelo}</h1>
+                    <h2>{veiculo.versao}</h2>
                     <div className="ano-km-div-card-veiculo-estoque">
-                        <p>{ano}</p>
-                        <p>{km} Km</p>
+                        <p>{veiculo.anoFabricacao + "/" + veiculo.anoModelo}</p>
+                        <p>{veiculo.km} Km</p>
                     </div>
+                    <h3><span>R$ {veiculo.precoVenda}</span></h3>
                     <div className="d-flex">
                         <Link to="/" className="button-card-veiculos-estoque">Ver parcelas</Link>
                     </div>

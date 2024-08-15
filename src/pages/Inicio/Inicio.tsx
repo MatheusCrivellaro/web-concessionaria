@@ -67,9 +67,7 @@ const Inicio = () => {
                 <h1>Veículos em destaque</h1>
                 <div className="veiculos-destaque-cards-div-inicio row">
                     {data?.slice(0, 8).map((i: Vehicle, index) =>
-                        <CardVeiculoEstoque image={i.fotos.foto[0].uri} title={i.modelo}
-                                              motor="2.0 16V Flex Completo Manual" preco={i.precoVenda} ano="2020/2021"
-                                              km="0" key={"carro" + index}/>
+                        <CardVeiculoEstoque image={i.fotos.foto[0].uri} veiculo={i} key={"carro" + index}/>
                     )}
                 </div>
                 <div className="col-12 d-flex justify-content-center">

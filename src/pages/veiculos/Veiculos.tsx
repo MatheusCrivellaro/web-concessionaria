@@ -148,14 +148,17 @@ const Veiculos = () => {
                     <div className="cards-itens-div-veiculos row">
                     <h1 className="col-12">Veículos em destaque</h1>
                         {filteredVehicles.length === 0 ? <h2>Nada encontrado</h2> : filteredVehicles?.map(value =>
-                            <CardVeiculoEstoque image={getPrimeiraFotoUri(value)} title={value.modelo}
-                                                motor={value.versao} preco={value.precoVenda} ano={value.anoModelo}
-                                                km={value.km} key={value.codigo}/>
+                            <CardVeiculoEstoque image={getPrimeiraFotoUri(value)} veiculo={value} key={value.codigo}/>
                         )}
                     </div>
                 }
             </div>
         </div>
+
+
+
+
+
     )
 }
 
