@@ -13,7 +13,7 @@
     margin-bottom: 24px;
 }
 
-.card-veiculo-estoque img {
+.image-card-veiculo-estoque {
     margin-bottom: 12px;
     border-radius: 8px;
     width: 100%;
@@ -26,6 +26,13 @@
     margin: 0;
 }
 
+.card-veiculo-estoque h4 span {
+    color: #3F3F50;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0;
+}
+
 .card-veiculo-estoque h2 {
     font-weight: normal;
     font-size: 12px;
@@ -35,7 +42,7 @@
 
 .card-veiculo-estoque h3 {
     font-weight: normal;
-    font-size: 12px;
+    font-size: 14px;
     color: #3F3F50;
     margin-bottom: 12px;
 }
@@ -54,6 +61,15 @@
     font-weight: 400;
 }
 
+.ano-km-div-card-veiculo-estoque p {
+    display: flex;
+}
+
+.icon-card-veiculos-estoque {
+    font-size: 18px;
+    margin-right: 8px;
+}
+
 .button-card-veiculos-estoque {
     width: 100%;
     text-align: center;
@@ -65,4 +81,12 @@
     font-size: 14px;
     font-weight: 400;
 }
+
+.img-logo-card-veiculo {
+    padding: 2px 0;
+    margin: 2px 0;
+    width: auto;
+    height: 25px;
+}
+
 
