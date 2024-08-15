@@ -28,9 +28,9 @@ const useGetLogo = () => {
         {brandName: '', imageSrc: imagemGenerica},
     ];
 
-    const getImgMarca = (marca: string) => {
+    const getImgMarca = (marca: string, imagensMarcas: {brandName: string, imageSrc: string}[]) => {
         let imgMarca = marcasImg[11]
-        marcasImg.forEach(value => {
+        imagensMarcas.forEach(value => {
             if (marca.toLowerCase() === value.brandName) {
                 imgMarca = value
             }
