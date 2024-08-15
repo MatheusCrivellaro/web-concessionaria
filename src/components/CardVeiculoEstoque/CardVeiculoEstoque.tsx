@@ -3,7 +3,6 @@ import './CardVeiculoEstoque.css'
 import {Link} from "react-router-dom";
 import imagemGenerica from '../../images/img-categoria.png'
 import {Vehicle} from "../../interfaces/Vehicle.ts";
-import useGetLogo from "../../hooks/useGetLogo.tsx";
 import {MdOutlineCalendarMonth} from "react-icons/md";
 import {SlSpeedometer} from "react-icons/sl";
 import honda from "../../images/marcas/Honda_Logo.svg.png";
@@ -31,8 +30,6 @@ const trataFoto = (image: string | undefined) => {
 
 const CardVeiculoEstoque = ({ image, veiculo }:props) => {
 
-    const { getImgMarca } = useGetLogo()
-
     const marcasImg = [
         {brandName: 'honda', imageSrc: honda},
         {brandName: 'fiat', imageSrc: fiat},
@@ -48,6 +45,16 @@ const CardVeiculoEstoque = ({ image, veiculo }:props) => {
         {brandName: '', imageSrc: imagemGenerica},
     ];
 
+    const getImgMarca = (marca: string) => {
+        let imgMarca = marcasImg[11]
+        marcasImg.forEach(value => {
+            if (marca.toLowerCase() === value.brandName) {
+                imgMarca = value
+            }
+        })
+        return imgMarca
+    }
+
     return (
         <div className="col-3 card-veiculo-div-estoque">
             <div className="card-veiculo-estoque shadow">
@@ -55,7 +62,7 @@ const CardVeiculoEstoque = ({ image, veiculo }:props) => {
                     <img src={trataFoto(image)} alt="" className="image-card-veiculo-estoque"/>
                 </div>
                 <div>
-                    <h4><img src={getImgMarca(veiculo.marca, marcasImg).imageSrc} alt="" className="img-logo-card-veiculo"/> <span>{veiculo.marca + " "}</span>{veiculo.modelo}</h4>
+                    <h4><img src={getImgMarca(veiculo.marca).imageSrc} alt="" className="img-logo-card-veiculo"/> <span>{veiculo.marca + " "}</span>{veiculo.modelo}</h4>
                     <h2>{veiculo.versao}</h2>
                     <div className="ano-km-div-card-veiculo-estoque">
                         <p><MdOutlineCalendarMonth className="icon-card-veiculos-estoque"/>{veiculo.anoFabricacao + "/" + veiculo.anoModelo}</p>

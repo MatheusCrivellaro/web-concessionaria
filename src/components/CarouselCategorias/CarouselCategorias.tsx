@@ -1,6 +1,5 @@
 import './CarouselCategorias.css'
 import CategoriaCard from "../CategoriaCard/CategoriaCard.tsx";
-import useGetLogo from "../../hooks/useGetLogo.tsx";
 import honda from "../../images/marcas/Honda_Logo.svg.png";
 import fiat from "../../images/marcas/fiat-logo-2-1.png";
 import mercedesBenz from "../../images/marcas/mercedes-benz-logo-8.png";
@@ -21,8 +20,6 @@ type props = {
 
 const CarouselCategorias = ({ marcas, handleSelectedMarca }: props) => {
 
-    const { getImgMarca } = useGetLogo()
-
     const marcasImg = [
         {brandName: 'honda', imageSrc: honda},
         {brandName: 'fiat', imageSrc: fiat},
@@ -38,6 +35,16 @@ const CarouselCategorias = ({ marcas, handleSelectedMarca }: props) => {
         {brandName: '', imageSrc: imagemGenerica},
     ];
 
+    const getImgMarca = (marca: string) => {
+        let imgMarca = marcasImg[11]
+        marcasImg.forEach(value => {
+            if (marca.toLowerCase() === value.brandName) {
+                imgMarca = value
+            }
+        })
+        return imgMarca
+    }
+
     return (
         <div className="categorias-div-inicio">
             <h1>Marcas</h1>
@@ -45,7 +52,7 @@ const CarouselCategorias = ({ marcas, handleSelectedMarca }: props) => {
                 {
                     marcas.map((i, index) =>
                         <CategoriaCard
-                            image={getImgMarca(i, marcasImg).imageSrc}
+                            image={getImgMarca(i).imageSrc}
                             title={i}
                             key={index + "categoria"}
                             handleSelectedMarca={handleSelectedMarca}
