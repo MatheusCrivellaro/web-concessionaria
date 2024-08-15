@@ -5,6 +5,7 @@ import imagemGenerica from '../../images/img-categoria.png'
 import {Vehicle} from "../../interfaces/Vehicle.ts";
 import {MdOutlineCalendarMonth} from "react-icons/md";
 import {SlSpeedometer} from "react-icons/sl";
+import useGetLogoEmpresas from "../../hooks/useGetLogoEmpresas.tsx";
 
 type props = {
     image: string,
@@ -19,6 +20,8 @@ const trataFoto = (image: string | undefined) => {
 
 const CardVeiculoEstoque = ({ image, veiculo }:props) => {
 
+    const { getLogo } = useGetLogoEmpresas()
+
     return (
         <div className="col-3 card-veiculo-div-estoque">
             <div className="card-veiculo-estoque shadow">
@@ -26,7 +29,7 @@ const CardVeiculoEstoque = ({ image, veiculo }:props) => {
                     <img src={trataFoto(image)} alt="" className="image-card-veiculo-estoque"/>
                 </div>
                 <div>
-                    <h4><img src={imagemGenerica} alt="" className="img-logo-card-veiculo"/> <span>{veiculo.marca + " "}</span>{veiculo.modelo}</h4>
+                    <h4><img src={getLogo(veiculo.marca)} alt="" className="img-logo-card-veiculo"/> <span>{veiculo.marca + " "}</span>{veiculo.modelo}</h4>
                     <h2>{veiculo.versao}</h2>
                     <div className="ano-km-div-card-veiculo-estoque">
                         <p><MdOutlineCalendarMonth className="icon-card-veiculos-estoque"/>{veiculo.anoFabricacao + "/" + veiculo.anoModelo}</p>

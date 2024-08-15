@@ -1,6 +1,6 @@
 import './CarouselCategorias.css'
 import CategoriaCard from "../CategoriaCard/CategoriaCard.tsx";
-import imageGenerica from "../../images/img-categoria.png";
+import useGetLogoEmpresas from "../../hooks/useGetLogoEmpresas.tsx";
 
 type props = {
     marcas: string[],
@@ -9,6 +9,8 @@ type props = {
 
 const CarouselCategorias = ({ marcas, handleSelectedMarca }: props) => {
 
+    const { getLogo } = useGetLogoEmpresas()
+
     return (
         <div className="categorias-div-inicio">
             <h1>Marcas</h1>
@@ -16,7 +18,7 @@ const CarouselCategorias = ({ marcas, handleSelectedMarca }: props) => {
                 {
                     marcas.map((i, index) =>
                         <CategoriaCard
-                            image={imageGenerica}
+                            image={getLogo(i)}
                             title={i}
                             key={index + "categoria"}
                             handleSelectedMarca={handleSelectedMarca}
