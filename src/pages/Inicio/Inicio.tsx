@@ -95,12 +95,12 @@ const Inicio = () => {
             <div className="localizacao-div-inicio">
                 <div className="mapa-div-localizacao-inicio">
                     <h1>Onde estamos?</h1>
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.7469508091112!2d-46.54850892375339!3d-23.541602160868354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5e6f50c4b1a9%3A0xc13cbfdd3a385c35!2sRua%20Comendador%20Gil%20Pinheiro%20-%20Ch%C3%A1cara%20Calif%C3%B3rnia%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2003406-000!5e0!3m2!1spt-BR!2sbr!4v1723249116243!5m2!1spt-BR!2sbr"
-                        width="600" height="450" loading="lazy"
-                        referrerPolicy="no-referrer-when-downgrade"
-                        className="map-localizacao-inicio"
-                    />
+                    {/*<iframe*/}
+                    {/*    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.7469508091112!2d-46.54850892375339!3d-23.541602160868354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5e6f50c4b1a9%3A0xc13cbfdd3a385c35!2sRua%20Comendador%20Gil%20Pinheiro%20-%20Ch%C3%A1cara%20Calif%C3%B3rnia%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2003406-000!5e0!3m2!1spt-BR!2sbr!4v1723249116243!5m2!1spt-BR!2sbr"*/}
+                    {/*    width="600" height="450" loading="lazy"*/}
+                    {/*    referrerPolicy="no-referrer-when-downgrade"*/}
+                    {/*    className="map-localizacao-inicio"*/}
+                    {/*/>*/}
                 </div>
                 <div className="informacoes-localizacao-div-inicio">
                     <h1>Nome da loja</h1>
