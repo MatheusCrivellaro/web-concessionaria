@@ -14,17 +14,17 @@ import imagemGenerica from "../images/img-categoria.png";
 const useGetLogo = () => {
 
     const marcasImg = [
-        {id: 1, brandName: 'honda', imageSrc: honda},
-        {id: 2, brandName: 'fiat', imageSrc: fiat},
-        {id: 3, brandName: 'mercedes-benz', imageSrc: mercedesBenz},
-        {id: 4, brandName: 'jeep', imageSrc: jeep},
-        {id: 5, brandName: 'hyundai', imageSrc: hyundai},
-        {id: 6, brandName: 'chevrolet', imageSrc: chevrolet},
-        {id: 7, brandName: 'volkswagen', imageSrc: volkswagen},
-        {id: 8, brandName: 'renault', imageSrc: renault},
-        {id: 9, brandName: 'ford', imageSrc: ford},
-        {id: 10, brandName: 'toyota', imageSrc: toyota},
-        {id: 11, brandName: 'peugeot', imageSrc: peugeot},
+        {brandName: 'honda', imageSrc: honda},
+        {brandName: 'fiat', imageSrc: fiat},
+        {brandName: 'mercedes-benz', imageSrc: mercedesBenz},
+        {brandName: 'jeep', imageSrc: jeep},
+        {brandName: 'hyundai', imageSrc: hyundai},
+        {brandName: 'chevrolet', imageSrc: chevrolet},
+        {brandName: 'volkswagen', imageSrc: volkswagen},
+        {brandName: 'renault', imageSrc: renault},
+        {brandName: 'ford', imageSrc: ford},
+        {brandName: 'toyota', imageSrc: toyota},
+        {brandName: 'peugeot', imageSrc: peugeot},
     ];
 
     const getImgMarca = (marca: string) => {
