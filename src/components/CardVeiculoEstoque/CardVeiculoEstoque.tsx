@@ -23,7 +23,7 @@ const CardVeiculoEstoque = ({ image, veiculo }:props) => {
                     <img src={trataFoto(image)} alt="" className=""/>
                 </div>
                 <div>
-                    <h1>{veiculo.marca + " " + veiculo.modelo}</h1>
+                    <h4>{veiculo.marca + " " + veiculo.modelo}</h4>
                     <h2>{veiculo.versao}</h2>
                     <div className="ano-km-div-card-veiculo-estoque">
                         <p>{veiculo.anoFabricacao + "/" + veiculo.anoModelo}</p>
