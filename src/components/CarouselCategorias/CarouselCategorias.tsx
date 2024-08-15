@@ -1,6 +1,6 @@
 import './CarouselCategorias.css'
 import CategoriaCard from "../CategoriaCard/CategoriaCard.tsx";
-import peugeot from "../../images/marcas/16.png";
+import imageGenerica from "../../images/img-categoria.png";
 
 type props = {
     marcas: string[],
@@ -16,7 +16,7 @@ const CarouselCategorias = ({ marcas, handleSelectedMarca }: props) => {
                 {
                     marcas.map((i, index) =>
                         <CategoriaCard
-                            image={peugeot}
+                            image={imageGenerica}
                             title={i}
                             key={index + "categoria"}
                             handleSelectedMarca={handleSelectedMarca}
