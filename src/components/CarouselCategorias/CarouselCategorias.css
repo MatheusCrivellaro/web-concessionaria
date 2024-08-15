@@ -1,23 +1,6 @@
 .categorias-div-inicio {
     max-width: 100%;
 }
-
-.categorias-cards-div-inicio {
-    display: flex;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-}
-
-.lg-padding {
-    padding: 0 192px;
-}
-
-.sm-padding {
-    padding: 0 48px;
-}
-
 .categorias-div-inicio h1 {
     font-size: 24px;
     font-weight: bold;
@@ -25,79 +8,6 @@
     color: #121217;
 }
 
-.lg-padding-title {
-    padding: 0 192px;
-}
-
-.sm-padding-title {
-    padding: 0 48px;
-}
-
-.buttons-categorias-div-inicio {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+.div-cards-categorias-carousel-inicio {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    top: -8%;
-}
-
-.lg-padding-button {
-    padding: 0 32px;
-}
-
-.sm-padding-button {
-    padding: 0 8px;
-}
-
-.buttons-categorias-div-inicio button {
-    border: none;
-    background: rgba(18, 18, 23, 40%);
-    width: 48px;
-    height: 48px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #FAFAFA;
-    border-radius: 360px;
-    transition: 0.3s;
-}
-
-.buttons-categorias-div-inicio button:hover {
-    background: rgba(18, 18, 23, 60%);
-}
-
-.categorias-carousel-inicio {
-    display: flex;
-    position: relative;
-    align-items: center;
-}
-
-.button-arrow-categorias {
-    border: none;
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    border-radius: 360px;
-    background: rgba(18, 18, 23, 40%);
-    color: #FAFAFA;
-    font-size: 18px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 24px;
-    transition: 0.25s;
-}
-
-.button-arrow-categorias:hover {
-    background: rgba(18, 18, 23, 60%);
-}
-
-.arrow-left {
-    right: 0;
-}
-
-.arrow-right {
-    left: 0;
 }

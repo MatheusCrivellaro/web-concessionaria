@@ -13,9 +13,12 @@ const CategoriaCard = ({ image, title, handleSelectedMarca }:props) => {
     };
 
     return (
-        <button onClick={triggerAction} className="categorias-card-inicio">
-            <img src={image} alt="" width="180" height="100"/>
-            <h2>{title}</h2>
+        <button onClick={triggerAction} className="categorias-card-inicio col-1">
+            <div className="div-itens-card-categoria">
+                <div/>
+                <img src={image} alt=""/>
+                <h1>{title}</h1>
+            </div>
         </button>
     )
 }

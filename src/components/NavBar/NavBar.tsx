@@ -1,13 +1,13 @@
 import { FaWhatsapp } from "react-icons/fa";
 import {NavLink} from "react-router-dom";
 import './NavBar.css';
+import logo from "../../images/logo-black-with-description.png"
 
 const NavBar = () => {
     return (
         <nav>
             <div className="title-div-nav">
-                <h1 className="title">Logo</h1>
-                <input className='search-nav' type="text" placeholder="Pesquise por veículo ou marca..." />
+                <img src={logo} alt="" width="120"/>
             </div>
             <div className='optionals-div-nav'>
                 <NavLink

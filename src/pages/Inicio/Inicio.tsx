@@ -1,7 +1,6 @@
 import './Inicio.css'
 import {Link, useNavigate} from "react-router-dom";
 import InformationCard from "../../components/InformationCard/InformationCard.tsx";
-import VeiculosDestaqueCard from "../../components/VeiculosDestaqueCard/VeiculosDestaqueCard.tsx";
 import imageBannerinicio from "../../images/Group 1.png"
 import iconInformation1 from "../../images/icon.png"
 import iconInformation2 from "../../images/icon(1).png"
@@ -18,6 +17,7 @@ import {Vehicle} from "../../interfaces/Vehicle.ts";
 import useCollects from "../../hooks/useCollects.tsx";
 import useFiltersVehicles from "../../hooks/useFiltersVehicles.tsx";
 import CarouselCategorias from "../../components/CarouselCategorias/CarouselCategorias.tsx";
+import CardVeiculoEstoque from "../../components/CardVeiculoEstoque/CardVeiculoEstoque.tsx";
 
 const Inicio = () => {
 
@@ -59,13 +59,15 @@ const Inicio = () => {
                 <InformationCard title="Financie o seu sonho" description="Temos como parceiras as principais financeiras, isso garante melhores taxas para você!" image={iconInformation3}/>
             </div>
 
-            <CarouselCategorias marcas={marcas} padding={0} handleSelectedMarca={handleSelectedMarca}/>
+            <div className="div-carousel-categorias">
+                <CarouselCategorias marcas={marcas} handleSelectedMarca={handleSelectedMarca}/>
+            </div>
 
             <div className="veiculos-destaque-div-inicio" id="veiculos-destaque">
                 <h1>Veículos em destaque</h1>
                 <div className="veiculos-destaque-cards-div-inicio row">
                     {data?.slice(0, 8).map((i: Vehicle, index) =>
-                        <VeiculosDestaqueCard image={i.fotos.foto[0].uri} title={i.modelo}
+                        <CardVeiculoEstoque image={i.fotos.foto[0].uri} title={i.modelo}
                                               motor="2.0 16V Flex Completo Manual" preco={i.precoVenda} ano="2020/2021"
                                               km="0" key={"carro" + index}/>
                     )}

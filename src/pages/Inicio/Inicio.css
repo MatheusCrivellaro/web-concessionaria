@@ -60,6 +60,16 @@
     margin-top: 32px;
 }
 
+.div-carousel-categorias {
+    padding: 24px 48px;
+}
+
+@media (min-width: 1600px) {
+    .div-carousel-categorias {
+        padding: 24px 192px;
+    }
+}
+
 .informations-div-inicio {
     width: 100%;
     padding: 32px 48px 24px 48px;

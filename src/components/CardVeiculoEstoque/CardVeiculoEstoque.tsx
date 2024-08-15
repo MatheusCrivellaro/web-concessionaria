@@ -24,6 +24,8 @@ const CardVeiculoEstoque = ({ image, title, motor, preco, ano, km }:props) => {
             <div className="card-veiculo-estoque shadow">
                 <div>
                     <img src={trataFoto(image)} alt="" className=""/>
+                </div>
+                <div>
                     <h1>{title}</h1>
                     <h2>{motor}</h2>
                     <h3>Por <span>R${preco}</span></h3>
@@ -31,9 +33,9 @@ const CardVeiculoEstoque = ({ image, title, motor, preco, ano, km }:props) => {
                         <p>{ano}</p>
                         <p>{km} Km</p>
                     </div>
-                </div>
-                <div className="d-flex">
-                    <Link to="/" className="button-card-veiculos-estoque">Ver parcelas</Link>
+                    <div className="d-flex">
+                        <Link to="/" className="button-card-veiculos-estoque">Ver parcelas</Link>
+                    </div>
                 </div>
             </div>
         </div>

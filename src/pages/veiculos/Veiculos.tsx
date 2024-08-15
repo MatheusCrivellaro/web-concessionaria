@@ -20,7 +20,7 @@ const Veiculos = () => {
     const { marcas, cores, cambios, carrocerias, combustiveis } = useCollects(data)
     useFiltersVehicles(data);
     const [selectedColors, setSelectedColors] = useState<string[]>([]);
-    const [selectedMarcas, setSelectedMarcas] = useState<string[]>(["todos"]);
+    const [selectedMarcas, setSelectedMarcas] = useState<string[]>([]);
     const [selectedCambios, setSelectedCambios] = useState<string[]>([]);
     const [selectedCombustivel, setSelectedCombustivel] = useState<string[]>([]);
     const [selectedCarroceria, setSelectedCarroceria] = useState<string[]>([]);
@@ -87,6 +87,8 @@ const Veiculos = () => {
     useEffect(() => {
         if (selectedMarcas.length===0)
             setSelectedMarcas([marcaSelecionada])
+        else if (!marcaSelecionada)
+            setSelectedMarcas(["todos"])
         setFilters(prevFilters => ({
             ...prevFilters,
             cores: selectedColors,
@@ -97,7 +99,7 @@ const Veiculos = () => {
             carroceria: selectedCarroceria,
             combustivel: selectedCombustivel,
         }));
-    }, [precoMin, precoMax, selectedColors, selectedMarcas, setFilters, selectedCarroceria, selectedCambios, selectedCombustivel    ]);
+    }, [precoMin, precoMax, selectedColors, selectedMarcas, setFilters, selectedCarroceria, selectedCambios, selectedCombustivel]);
 
     const getPrimeiraFotoUri = (veiculo: Vehicle) => {
         return veiculo.fotos.foto[0]?.uri
@@ -136,7 +138,7 @@ const Veiculos = () => {
             </div>
             <div className="cards-div-veiculos col-9">
                 <div className="marcas-cards-div-veiculos">
-                    <CarouselCategorias marcas={marcas} padding={0} handleSelectedMarca={handleSelectMarca}/>
+                    <CarouselCategorias marcas={marcas} handleSelectedMarca={handleSelectMarca}/>
                 </div>
                 {filteredVehicles.length === 0 ?
                     <div className="cards-itens-div-none-veiculos">
