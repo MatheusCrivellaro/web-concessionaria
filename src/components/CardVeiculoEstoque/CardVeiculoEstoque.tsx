@@ -29,7 +29,7 @@ const CardVeiculoEstoque = ({ image, veiculo }:props) => {
                     <img src={trataFoto(image)} alt="" className="image-card-veiculo-estoque"/>
                 </div>
                 <div>
-                    <h4><img src={getImgMarca(veiculo.marca)} alt="" className="img-logo-card-veiculo"/> <span>{veiculo.marca + " "}</span>{veiculo.modelo}</h4>
+                    <h4><img src={getImgMarca(veiculo.marca).imageSrc} alt="" className="img-logo-card-veiculo"/> <span>{veiculo.marca + " "}</span>{veiculo.modelo}</h4>
                     <h2>{veiculo.versao}</h2>
                     <div className="ano-km-div-card-veiculo-estoque">
                         <p><MdOutlineCalendarMonth className="icon-card-veiculos-estoque"/>{veiculo.anoFabricacao + "/" + veiculo.anoModelo}</p>

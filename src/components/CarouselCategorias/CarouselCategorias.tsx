@@ -18,7 +18,7 @@ const CarouselCategorias = ({ marcas, handleSelectedMarca }: props) => {
                 {
                     marcas.map((i, index) =>
                         <CategoriaCard
-                            image={getImgMarca(i)}
+                            image={getImgMarca(i).imageSrc}
                             title={i}
                             key={index + "categoria"}
                             handleSelectedMarca={handleSelectedMarca}
