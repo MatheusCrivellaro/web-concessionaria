@@ -1,10 +1,11 @@
 const useGetLogoEmpresas = () => {
 
     const getLogo = (nome: string) => {
+        let nomeTolowerCase = nome.toLowerCase()
         let extencao = ".com"
-        if (nome === "ford" || nome === "jeep")
+        if (nomeTolowerCase === "ford" || nomeTolowerCase === "jeep" || nomeTolowerCase === "renault")
             extencao = ".com.br"
-        return "https://logo.clearbit.com/" + nome + extencao
+        return "https://logo.clearbit.com/" + nomeTolowerCase + extencao
     }
 
     return {

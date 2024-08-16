@@ -6,7 +6,6 @@ import useFiltersVehicles from "../../hooks/useFiltersVehicles.tsx";
 import CarouselCategorias from "../../components/CarouselCategorias/CarouselCategorias.tsx";
 import {LuFilter} from "react-icons/lu";
 import CardVeiculoEstoque from "../../components/CardVeiculoEstoque/CardVeiculoEstoque.tsx";
-import {Vehicle} from "../../interfaces/Vehicle.ts";
 import {useEffect, useState} from "react";
 import {useLocation} from "react-router-dom";
 
@@ -20,7 +19,7 @@ const Veiculos = () => {
     const { marcas, cores, cambios, carrocerias, combustiveis } = useCollects(data)
     useFiltersVehicles(data);
     const [selectedColors, setSelectedColors] = useState<string[]>([]);
-    const [selectedMarcas, setSelectedMarcas] = useState<string[]>([]);
+    const [selectedMarcas, setSelectedMarcas] = useState<string[]>(marcaSelecionada ? [] : ["todos"]);
     const [selectedCambios, setSelectedCambios] = useState<string[]>([]);
     const [selectedCombustivel, setSelectedCombustivel] = useState<string[]>([]);
     const [selectedCarroceria, setSelectedCarroceria] = useState<string[]>([]);
@@ -85,10 +84,8 @@ const Veiculos = () => {
     }
 
     useEffect(() => {
-        if (selectedMarcas.length===0)
+        if (selectedMarcas.length<1)
             setSelectedMarcas([marcaSelecionada])
-        else if (!marcaSelecionada)
-            setSelectedMarcas(["todos"])
         setFilters(prevFilters => ({
             ...prevFilters,
             cores: selectedColors,
@@ -101,12 +98,8 @@ const Veiculos = () => {
         }));
     }, [precoMin, precoMax, selectedColors, selectedMarcas, setFilters, selectedCarroceria, selectedCambios, selectedCombustivel]);
 
-    const getPrimeiraFotoUri = (veiculo: Vehicle) => {
-        return veiculo.fotos.foto[0]?.uri
-    }
-
     return (
-        <div className="veiculos row">
+        <div className="veiculos row" id="veiculos">
             <div className="filtro-div-veiculos col-3">
                 <div className="menu-filtros-div-veiculos">
                     <h1 className="col-12">Filtrar</h1>
@@ -148,7 +141,7 @@ const Veiculos = () => {
                     <div className="cards-itens-div-veiculos row">
                     <h1 className="col-12">Veículos em destaque</h1>
                         {filteredVehicles.length === 0 ? <h2>Nada encontrado</h2> : filteredVehicles?.map(value =>
-                            <CardVeiculoEstoque image={getPrimeiraFotoUri(value)} veiculo={value} key={value.codigo}/>
+                            <CardVeiculoEstoque veiculo={value} key={value.codigo}/>
                         )}
                     </div>
                 }

@@ -1,7 +1,6 @@
 import './Inicio.css'
 import {Link, useNavigate} from "react-router-dom";
 import InformationCard from "../../components/InformationCard/InformationCard.tsx";
-import imageBannerinicio from "../../images/Group 1.png"
 import iconInformation1 from "../../images/icon.png"
 import iconInformation2 from "../../images/icon(1).png"
 import iconInformation3 from "../../images/icon(2).png"
@@ -18,6 +17,7 @@ import useCollects from "../../hooks/useCollects.tsx";
 import useFiltersVehicles from "../../hooks/useFiltersVehicles.tsx";
 import CarouselCategorias from "../../components/CarouselCategorias/CarouselCategorias.tsx";
 import CardVeiculoEstoque from "../../components/CardVeiculoEstoque/CardVeiculoEstoque.tsx";
+import CarouselBanner from "../../components/CarouselBanner/CarouselBanner.tsx";
 
 const Inicio = () => {
 
@@ -28,31 +28,32 @@ const Inicio = () => {
     const navigate = useNavigate();
 
     const handleSelectedMarca = (selectedMarca: string) => {
-        navigate('/veiculos', { state: { marcaSelecionada: selectedMarca } });
+        navigate('/veiculos/#veiculos', { state: { marcaSelecionada: selectedMarca } });
     };
 
     return (
         <div className="inicio">
-            <div className="banner-div-inicio">
-                <div className="text-banner-div-inicio">
-                    <div className="text-banner-inicio">
-                        <h1>Seu próximo carro <span>está aqui!</span></h1>
-                        <h2>
-                            Adquira agora mesmo seu veículo dos sonhos com <span>condições especiais!</span>
-                        </h2>
-                        <h2>Veja agora mesmo nossos veículos em destaque:</h2>
-                        <div className="div-buttons-banner-inicio">
-                            <Link to="/financiamento" className="button-banner-inicio button-banner-grey">
-                                Fazer um financiamento
-                            </Link>
-                            <a href="/#veiculos-destaque" className="button-banner-inicio button-banner-blue">
-                                Ver veículos em destaque
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <img src={imageBannerinicio} alt="" />
-            </div>
+            <CarouselBanner />
+            {/*<div className="banner-div-inicio">*/}
+            {/*    <div className="text-banner-div-inicio">*/}
+            {/*        <div className="text-banner-inicio">*/}
+            {/*            <h1>Seu próximo carro <span>está aqui!</span></h1>*/}
+            {/*            <h2>*/}
+            {/*                Adquira agora mesmo seu veículo dos sonhos com <span>condições especiais!</span>*/}
+            {/*            </h2>*/}
+            {/*            <h2>Veja agora mesmo nossos veículos em destaque:</h2>*/}
+            {/*            <div className="div-buttons-banner-inicio">*/}
+            {/*                <Link to="/financiamento" className="button-banner-inicio button-banner-grey">*/}
+            {/*                    Fazer um financiamento*/}
+            {/*                </Link>*/}
+            {/*                <a href="/#veiculos-destaque" className="button-banner-inicio button-banner-blue">*/}
+            {/*                    Ver veículos em destaque*/}
+            {/*                </a>*/}
+            {/*            </div>*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*    <img src={imageBannerinicio} alt="" />*/}
+            {/*</div>*/}
             <div className="informations-div-inicio row">
                 <InformationCard title="Carros novos e semi-novos" description="Nós proporcionamos para você condições especiais para poder adquirir o veículo dos seus sonhos! " image={iconInformation1}/>
                 <InformationCard title="Compra de veículos" description="Compramos seu veículo sem burocracia, com agilidade na análise e preço justo." image={iconInformation2}/>
@@ -67,7 +68,7 @@ const Inicio = () => {
                 <h1>Veículos em destaque</h1>
                 <div className="veiculos-destaque-cards-div-inicio row">
                     {data?.slice(0, 8).map((i: Vehicle, index) =>
-                        <CardVeiculoEstoque image={i.fotos.foto[0].uri} veiculo={i} key={"carro" + index}/>
+                        <CardVeiculoEstoque veiculo={i} key={"carro" + index}/>
                     )}
                 </div>
                 <div className="col-12 d-flex justify-content-center">
@@ -96,7 +97,7 @@ const Inicio = () => {
                 <div className="mapa-div-localizacao-inicio">
                     <h1>Onde estamos?</h1>
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.7469508091112!2d-46.54850892375339!3d-23.541602160868354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5e6f50c4b1a9%3A0xc13cbfdd3a385c35!2sRua%20Comendador%20Gil%20Pinheiro%20-%20Ch%C3%A1cara%20Calif%C3%B3rnia%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2003406-000!5e0!3m2!1spt-BR!2sbr!4v1723249116243!5m2!1spt-BR!2sbr"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d347.2884943778478!2d-49.2659074530998!3d-25.43762396255302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce468ed54b4bf%3A0x4f96264373029feb!2zU2hvcHBpbmcgRXN0YcOnw6Nv!5e0!3m2!1spt-BR!2sbr!4v1723774333079!5m2!1spt-BR!2sbr"
                         width="600" height="450" loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade"
                         className="map-localizacao-inicio"
