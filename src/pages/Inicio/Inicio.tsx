@@ -72,7 +72,7 @@ const Inicio = () => {
                     )}
                 </div>
                 <div className="col-12 d-flex justify-content-center">
-                    <Link to="/veiculos" className="button-veiculos-destaque-inicio">Ver mais</Link>
+                    <Link to="/veiculos/#veiculos" className="button-veiculos-destaque-inicio">Ver mais</Link>
                 </div>
             </div>
             <div className="avaliacoes-div-inicio">
