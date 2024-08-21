@@ -21,6 +21,7 @@ const Veiculos = () => {
     const [selectedCarroceria, setSelectedCarroceria] = useState<string>('todos');
     const [precoMin, setPrecoMin] = useState<string>('');
     const [precoMax, setPrecoMax] = useState<string>('');
+    const [ordenacao, setOrdenacao] = useState<string>('')
 
     const [filteredVehicles, setFilteredVehicles] = useState<Vehicle[]>([]);
     const [filters, setFilters] = useState<Filters>({});
@@ -41,7 +42,7 @@ const Veiculos = () => {
                 (filters.precoMin === undefined || filters.precoMin === "" || extractNumbers(vehicle.precoVenda) > extractNumbers(filters.precoMin))
             );
         });
-        result = sortVehicles(result, ordenation)
+        result = sortVehicles(result, ordenation !== "" ? ordenation : filters.ordenacao);
         setFilteredVehicles(result);
     }
 
@@ -110,6 +111,7 @@ const Veiculos = () => {
         updateFilter('combustivel', "todos", setSelectedCombustivel)
         updateFilter('precoMax', "", handlePrecoMinChange)
         updateFilter('precoMin', "", handlePrecoMaxChange)
+        updateFilter('ordenacao', "relevancia", setOrdenacao)
     }
 
     useEffect(() => {
