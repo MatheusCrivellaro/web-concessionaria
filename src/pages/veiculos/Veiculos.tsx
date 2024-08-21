@@ -1,6 +1,7 @@
-import { ChangeEvent, useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { LuFilter } from "react-icons/lu";
 import CardVeiculoEstoque from "../../components/CardVeiculoEstoque/CardVeiculoEstoque.tsx";
+import CarouselCategorias from "../../components/CarouselCategorias/CarouselCategorias.tsx";
 import OptionFiltroContainer from "../../components/OptionFiltroContainer/OptionFiltroContainer.tsx";
 import useCollects from "../../hooks/useCollects.tsx";
 import { useGetStock } from "../../hooks/useGetStock.tsx";
@@ -77,24 +78,24 @@ const Veiculos = () => {
         value
     }
 
-    const handleSelectMarca = (e: ChangeEvent<HTMLInputElement>) => {
-        updateFilter('marca', e.target.value, setSelectedMarcas)
+    const handleSelectMarca = (value: string) => {
+        updateFilter('marca', value, setSelectedMarcas)
     }
 
-    const handleSelectCor = (e: ChangeEvent<HTMLInputElement>) => {
-        updateFilter('cor', e.target.value, setSelectedColors)
+    const handleSelectCor = (value: string) => {
+        updateFilter('cor', value, setSelectedColors)
     }
 
-    const handleSelectCambio = (e: ChangeEvent<HTMLInputElement>) => {
-        updateFilter('cambio', e.target.value, setSelectedCambios)
+    const handleSelectCambio = (value: string) => {
+        updateFilter('cambio', value, setSelectedCambios)
     }
 
-    const handleSelectCombustivel = (e: ChangeEvent<HTMLInputElement>) => {
-        updateFilter('combustivel', e.target.value, setSelectedCombustivel)
+    const handleSelectCombustivel = (value: string) => {
+        updateFilter('combustivel', value, setSelectedCombustivel)
     }
 
-    const handleSelectCarroceria = (e: ChangeEvent<HTMLInputElement>) => {
-        updateFilter('carroceria', e.target.value, setSelectedCarroceria)
+    const handleSelectCarroceria = (value: string) => {
+        updateFilter('carroceria', value, setSelectedCarroceria)
     }
 
     const handlePrecoMinChange = (value: string) => {
@@ -172,16 +173,16 @@ const Veiculos = () => {
                             max="5000000" step="10000" onChange={(e) => handlePrecoMaxChange(e.target.value)} />
                     </div>
                 </div>
-                <OptionFiltroContainer title="Marcas" group={"marca"} value={marcas} handle={handleSelectMarca}
+                <OptionFiltroContainer title="Marcas" group={"marca"} value={marcas} handle={(e) => handleSelectMarca(e.target.value)}
                     selected={selectedMarcas} todos={true} />
-                <OptionFiltroContainer title="Cores" group={"cor"} value={cores} handle={handleSelectCor}
+                <OptionFiltroContainer title="Cores" group={"cor"} value={cores} handle={(e) => handleSelectCor(e.target.value)}
                     selected={selectedColors} todos={true} />
-                <OptionFiltroContainer title="Câmbio" group={"cambio"} value={cambios} handle={handleSelectCambio}
+                <OptionFiltroContainer title="Câmbio" group={"cambio"} value={cambios} handle={(e) => handleSelectCambio(e.target.value)}
                     selected={selectedCambios} todos={true} />
                 <OptionFiltroContainer title="Combustível" group={"combustivel"} value={combustiveis}
-                    handle={handleSelectCombustivel} selected={selectedCombustivel} todos={true} />
+                    handle={(e) => handleSelectCombustivel(e.target.value)} selected={selectedCombustivel} todos={true} />
                 <OptionFiltroContainer title="Carroceria" group={"carroceria"} value={carrocerias}
-                    handle={handleSelectCarroceria} selected={selectedCarroceria} todos={true} />
+                    handle={(e) => handleSelectCarroceria(e.target.value)} selected={selectedCarroceria} todos={true} />
                 <div className="col-12 div-filtro-button">
                     <button className="filtro-button" onClick={() => applyFilter("")}>Filtrar <LuFilter
                         className="icon-button-filtro" /></button>
@@ -200,6 +201,7 @@ const Veiculos = () => {
                             <h2>Nenhum veículo foi encontrado :(</h2>
                         </div>) :
                     <div className="cards-itens-div-veiculos row">
+                        <CarouselCategorias handleSelectedMarca={handleSelectMarca} marcas={marcas} />
                         <h1 className="col-12">Veículos em destaque</h1>
                         {filteredVehicles.length === 0 ? <h2>Nada encontrado</h2> : filteredVehicles?.map(value =>
                             <CardVeiculoEstoque veiculo={value} key={value.codigo} />
