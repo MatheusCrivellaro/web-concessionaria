@@ -47,14 +47,24 @@ const Veiculos = () => {
 
     const sortVehicles = (vehicles: Vehicle[], typeOrdenacao: string | undefined) => {
         let result = vehicles
+        // if (typeOrdenacao === "relevancia")
+        //     result = result.sort((a, b) => {
+        //         return extractNumbers(a.precoVenda) - extractNumbers(b.precoVenda);
+        //     })
+        if (typeOrdenacao === "marca-modelo")
+            result = result.sort((a, b) =>
+                a.marca === b.marca
+                    ? (a.modelo < b.modelo ? -1 : a.modelo > b.modelo ? 1 : 0)
+                    : (a.marca < b.marca ? -1 : 1)
+            )
+        if (typeOrdenacao === "ano-mais-novo")
+            result = result.sort((a, b) => extractNumbers(b.anoFabricacao) - extractNumbers(a.anoFabricacao))
+        if (typeOrdenacao === "menor-km")
+            result = result.sort((a, b) => extractNumbers(a.km) - extractNumbers(b.km))
         if (typeOrdenacao === "menor-preco")
-            result = result.sort((a, b) => {
-                return extractNumbers(a.precoVenda) - extractNumbers(b.precoVenda);
-            })
+            result = result.sort((a, b) => extractNumbers(a.precoVenda) - extractNumbers(b.precoVenda))
         if (typeOrdenacao === "maior-preco")
-            result = result.sort((a, b) => {
-                return extractNumbers(b.precoVenda) - extractNumbers(a.precoVenda);
-            })
+            result = result.sort((a, b) => extractNumbers(b.precoVenda) - extractNumbers(a.precoVenda))
         return result;
     }
 
@@ -114,25 +124,36 @@ const Veiculos = () => {
                     <h1 className="col-12">Filtrar</h1>
                     <div className="d-flex col-12">
                         <div className="col-6 div-clear-filtro-button">
-                            <button className="clear-filtro-button" onClick={() => {handleUpdateClearFilters()}}>Limpar Filtros</button>
+                            <button className="clear-filtro-button" onClick={() => {
+                                handleUpdateClearFilters()
+                            }}>Limpar Filtros
+                            </button>
                         </div>
                         <div className="col-6 div-filtro-button">
-                            <button className="filtro-button" onClick={() => applyFilter("")}>Filtrar <LuFilter className="icon-button-filtro"/></button>
+                            <button className="filtro-button" onClick={() => applyFilter("")}>Filtrar <LuFilter
+                                className="icon-button-filtro"/></button>
                         </div>
+                    </div>
+                    <div className="dropdown">
+                        <button className="dropdown-toggle button-ordenar" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                            Ordenar Por
+                        </button>
+                        <ul className="dropdown-menu button-ordenar-menu">
+                            <li><a className="dropdown-item" href="#" onClick={() => applyFilter("maior-preco")}>Maior
+                                Preço</a></li>
+                            <li><a className="dropdown-item" href="#" onClick={() => applyFilter("menor-preco")}>Menor
+                                Preço</a></li>
+                            <li><a className="dropdown-item" href="#"
+                                   onClick={() => applyFilter("marca-modelo")}>Marca/Modelo</a></li>
+                            <li><a className="dropdown-item" href="#" onClick={() => applyFilter("ano-mais-novo")}>Ano
+                                Mais Novo</a></li>
+                            <li><a className="dropdown-item" href="#" onClick={() => applyFilter("menor-km")}>Menor
+                                KM</a></li>
+                        </ul>
                     </div>
                 </div>
                 <div className="menu-preco-filtros-div-veiculos">
-                    <div className="dropdown">
-                        <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                            Dropdown button
-                        </button>
-                        <ul className="dropdown-menu">
-                            <li><a className="dropdown-item" href="#" onClick={() => applyFilter("maior-preco")}>Action</a></li>
-                            <li><a className="dropdown-item" href="#" onClick={() => applyFilter("menor-preco")}>Another action</a></li>
-                            <li><a className="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </div>
                     <h1>Preço</h1>
                     <div className="div-input-preco">
                         <label htmlFor="de">De</label>
@@ -141,18 +162,28 @@ const Veiculos = () => {
                     </div>
                     <div className="div-input-preco">
                         <label htmlFor="ate">Até</label>
-                        <input type="number" placeholder="R$1.000.000,00" id="ate" value={precoMax} min={precoMin} max="5000000" step="10000" onChange={(e) => handlePrecoMaxChange(e.target.value)}/>
+                        <input type="number" placeholder="R$1.000.000,00" id="ate" value={precoMax} min={precoMin}
+                               max="5000000" step="10000" onChange={(e) => handlePrecoMaxChange(e.target.value)}/>
                     </div>
                 </div>
-                <OptionFiltroContainer title="Marcas" group={"marca"} value={marcas} handle={handleSelectMarca} selected={selectedMarcas} todos={true}/>
-                <OptionFiltroContainer title="Cores" group={"cor"} value={cores} handle={handleSelectCor} selected={selectedColors} todos={true}/>
-                <OptionFiltroContainer title="Câmbio" group={"cambio"} value={cambios} handle={handleSelectCambio} selected={selectedCambios} todos={true}/>
-                <OptionFiltroContainer title="Combustível" group={"combustivel"} value={combustiveis} handle={handleSelectCombustivel} selected={selectedCombustivel} todos={true}/>
-                <OptionFiltroContainer title="Carroceria" group={"carroceria"} value={carrocerias} handle={handleSelectCarroceria} selected={selectedCarroceria} todos={true}/>
+                <OptionFiltroContainer title="Marcas" group={"marca"} value={marcas} handle={handleSelectMarca}
+                                       selected={selectedMarcas} todos={true}/>
+                <OptionFiltroContainer title="Cores" group={"cor"} value={cores} handle={handleSelectCor}
+                                       selected={selectedColors} todos={true}/>
+                <OptionFiltroContainer title="Câmbio" group={"cambio"} value={cambios} handle={handleSelectCambio}
+                                       selected={selectedCambios} todos={true}/>
+                <OptionFiltroContainer title="Combustível" group={"combustivel"} value={combustiveis}
+                                       handle={handleSelectCombustivel} selected={selectedCombustivel} todos={true}/>
+                <OptionFiltroContainer title="Carroceria" group={"carroceria"} value={carrocerias}
+                                       handle={handleSelectCarroceria} selected={selectedCarroceria} todos={true}/>
+                <div className="col-12 div-filtro-button">
+                    <button className="filtro-button" onClick={() => applyFilter("")}>Filtrar <LuFilter
+                        className="icon-button-filtro"/></button>
+                </div>
             </div>
             <div className="cards-div-veiculos col-9">
                 {filteredVehicles.length === 0 ?
-                    (isLoading ?<div className="spinner-border" role="status">
+                    (isLoading ? <div className="spinner-border" role="status">
                         <span className="visually-hidden">Loading...</span>
                     </div> : <div className="cards-itens-div-none-veiculos">
                         <h1 className="col-12">Veículos em destaque</h1>

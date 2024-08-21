@@ -137,3 +137,19 @@
     padding: 24px;
     width: 100%;
 }
+
+.button-ordenar {
+    width: 100%;
+    border: none;
+    background: #00ACFF;
+    color: #fafafa;
+    margin-top: 12px;
+    border-radius: 8px;
+    padding: 4px;
+    font-size: 14px;
+}
+
+.button-ordenar-menu {
+    width: 100%;
+    text-align: center;
+}
