@@ -14,7 +14,6 @@ import {RiPhoneLine} from "react-icons/ri";
 import {useGetStock} from "../../hooks/useGetStock.tsx";
 import {Vehicle} from "../../interfaces/Vehicle.ts";
 import useCollects from "../../hooks/useCollects.tsx";
-import useFiltersVehicles from "../../hooks/useFiltersVehicles.tsx";
 import CarouselCategorias from "../../components/CarouselCategorias/CarouselCategorias.tsx";
 import CardVeiculoEstoque from "../../components/CardVeiculoEstoque/CardVeiculoEstoque.tsx";
 import CarouselBanner from "../../components/CarouselBanner/CarouselBanner.tsx";
@@ -23,7 +22,6 @@ const Inicio = () => {
 
     const { data } = useGetStock();
     const { marcas  } = useCollects(data)
-    useFiltersVehicles(data);
 
     const navigate = useNavigate();
 

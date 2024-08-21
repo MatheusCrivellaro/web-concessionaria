@@ -31,7 +31,7 @@ const useCollects = (vehicles: Vehicle[] = []) => {
 
     const collectCarrocerias = (vehicles: Vehicle[]) => {
         vehicles.forEach(vehicle => {
-            if (!carrocerias.includes(vehicle.carroceria.toLowerCase()))
+            if (!carrocerias.includes(vehicle.carroceria.toLowerCase()) && (vehicle.carroceria !== ''))
                 carrocerias.push(vehicle.carroceria.toLowerCase());
         })
     }

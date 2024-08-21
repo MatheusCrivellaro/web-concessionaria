@@ -7,7 +7,7 @@ type props = {
     group: string,
     handle: (e: ChangeEvent<HTMLInputElement>) => void,
     todos: boolean
-    selected: string[]
+    selected: string
 }
 
 const OptionFiltroContainer = ({ title, value, group, handle, todos, selected}: props) => {

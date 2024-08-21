@@ -12,12 +12,12 @@ const CarouselCards = ({ veiculo }: props) => {
                 {veiculo.fotos.foto.map((value, index) => {
                     if (index === 0)
                         return (
-                            <div className="carousel-item div-card-carousel active">
+                            <div className="carousel-item div-card-carousel active" key={index}>
                                 <img src={value.uri} alt=""/>
                             </div>
                         )
                     return (
-                        <div className="carousel-item div-card-carousel">
+                        <div className="carousel-item div-card-carousel" key={index}>
                             <img src={value.uri} alt=""/>
                         </div>
                     )

@@ -88,7 +88,7 @@
     font-size: 14px;
 }
 
-.menu-preco-filtros-div-veiculos div {
+.menu-preco-filtros-div-veiculos .div-input-preco {
     border: 1px solid #D1D1DB;
     border-radius: 8px;
     margin-top: 12px;
