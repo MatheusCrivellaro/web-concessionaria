@@ -153,3 +153,17 @@
     width: 100%;
     text-align: center;
 }
+
+.spinner-estoque-carros {
+    width: 200px;
+    height: 200px;
+    font-size: 40px;
+}
+
+.spinner-estoque-carros-div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}

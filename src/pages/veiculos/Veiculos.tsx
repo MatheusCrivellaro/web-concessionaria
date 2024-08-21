@@ -1,12 +1,12 @@
-import './Veiculos.css'
-import OptionFiltroContainer from "../../components/OptionFiltroContainer/OptionFiltroContainer.tsx";
-import {useGetStock} from "../../hooks/useGetStock.tsx";
-import useCollects from "../../hooks/useCollects.tsx";
-import {LuFilter} from "react-icons/lu";
+import { ChangeEvent, useCallback, useEffect, useState } from "react";
+import { LuFilter } from "react-icons/lu";
 import CardVeiculoEstoque from "../../components/CardVeiculoEstoque/CardVeiculoEstoque.tsx";
-import {ChangeEvent, useCallback, useEffect, useState} from "react";
-import {Vehicle} from "../../interfaces/Vehicle.ts";
-import {Filters} from "../../interfaces/Filters.ts";
+import OptionFiltroContainer from "../../components/OptionFiltroContainer/OptionFiltroContainer.tsx";
+import useCollects from "../../hooks/useCollects.tsx";
+import { useGetStock } from "../../hooks/useGetStock.tsx";
+import { Filters } from "../../interfaces/Filters.ts";
+import { Vehicle } from "../../interfaces/Vehicle.ts";
+import './Veiculos.css';
 
 
 const Veiculos = () => {
@@ -21,18 +21,18 @@ const Veiculos = () => {
     const [selectedCarroceria, setSelectedCarroceria] = useState<string>('todos');
     const [precoMin, setPrecoMin] = useState<string>('');
     const [precoMax, setPrecoMax] = useState<string>('');
-    const [ordenacao, setOrdenacao] = useState<string>('')
 
     const [filteredVehicles, setFilteredVehicles] = useState<Vehicle[]>([]);
     const [filters, setFilters] = useState<Filters>({});
 
     const updateFilter = useCallback((key: keyof Filters, value: string, setValue: (value: string) => void) => {
-        setFilters((prevFilters) => ({...prevFilters, [key]: value}));
+        setFilters((prevFilters) => ({ ...prevFilters, [key]: value }));
         setValue(value)
     }, [])
 
     const applyFilter = (ordenation: string) => {
-        let result = data!.filter((vehicle) => {return (
+        let result = data!.filter((vehicle) => {
+            return (
                 (filters.cor === undefined || filters.cor === "todos" || vehicle.cor.toLowerCase() === filters.cor) &&
                 (filters.marca === undefined || filters.marca === "todos" || vehicle.marca.toLowerCase() === filters.marca) &&
                 (filters.combustivel === undefined || filters.combustivel === "todos" || vehicle.combustivel.toLowerCase() === filters.combustivel) &&
@@ -73,6 +73,10 @@ const Veiculos = () => {
         return parseFloat(input.replace(/\./g, '').replace(',', '.'))
     }
 
+    const handleOrdenacao = (value: string) => {
+        value
+    }
+
     const handleSelectMarca = (e: ChangeEvent<HTMLInputElement>) => {
         updateFilter('marca', e.target.value, setSelectedMarcas)
     }
@@ -94,12 +98,12 @@ const Veiculos = () => {
     }
 
     const handlePrecoMinChange = (value: string) => {
-        if (/^\d*$/.test(value) && value.length<=11)
+        if (/^\d*$/.test(value) && value.length <= 11)
             updateFilter('precoMin', value, setPrecoMin)
     };
 
     const handlePrecoMaxChange = (value: string) => {
-        if (/^\d*$/.test(value) && value.length<=11)
+        if (/^\d*$/.test(value) && value.length <= 11)
             updateFilter('precoMax', value, setPrecoMax)
     };
 
@@ -111,7 +115,7 @@ const Veiculos = () => {
         updateFilter('combustivel', "todos", setSelectedCombustivel)
         updateFilter('precoMax', "", handlePrecoMinChange)
         updateFilter('precoMin', "", handlePrecoMaxChange)
-        updateFilter('ordenacao', "relevancia", setOrdenacao)
+        updateFilter('ordenacao', "relevancia", handleOrdenacao)
     }
 
     useEffect(() => {
@@ -133,12 +137,12 @@ const Veiculos = () => {
                         </div>
                         <div className="col-6 div-filtro-button">
                             <button className="filtro-button" onClick={() => applyFilter("")}>Filtrar <LuFilter
-                                className="icon-button-filtro"/></button>
+                                className="icon-button-filtro" /></button>
                         </div>
                     </div>
                     <div className="dropdown">
                         <button className="dropdown-toggle button-ordenar" type="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
+                            aria-expanded="false">
                             Ordenar Por
                         </button>
                         <ul className="dropdown-menu button-ordenar-menu">
@@ -147,7 +151,7 @@ const Veiculos = () => {
                             <li><a className="dropdown-item" href="#" onClick={() => applyFilter("menor-preco")}>Menor
                                 Preço</a></li>
                             <li><a className="dropdown-item" href="#"
-                                   onClick={() => applyFilter("marca-modelo")}>Marca/Modelo</a></li>
+                                onClick={() => applyFilter("marca-modelo")}>Marca/Modelo</a></li>
                             <li><a className="dropdown-item" href="#" onClick={() => applyFilter("ano-mais-novo")}>Ano
                                 Mais Novo</a></li>
                             <li><a className="dropdown-item" href="#" onClick={() => applyFilter("menor-km")}>Menor
@@ -160,41 +164,45 @@ const Veiculos = () => {
                     <div className="div-input-preco">
                         <label htmlFor="de">De</label>
                         <input type="number" placeholder="R$0,00" id="de" value={precoMin} min="0" max={precoMax}
-                               step="10000" onChange={(e) => handlePrecoMinChange(e.target.value)}/>
+                            step="10000" onChange={(e) => handlePrecoMinChange(e.target.value)} />
                     </div>
                     <div className="div-input-preco">
                         <label htmlFor="ate">Até</label>
                         <input type="number" placeholder="R$1.000.000,00" id="ate" value={precoMax} min={precoMin}
-                               max="5000000" step="10000" onChange={(e) => handlePrecoMaxChange(e.target.value)}/>
+                            max="5000000" step="10000" onChange={(e) => handlePrecoMaxChange(e.target.value)} />
                     </div>
                 </div>
                 <OptionFiltroContainer title="Marcas" group={"marca"} value={marcas} handle={handleSelectMarca}
-                                       selected={selectedMarcas} todos={true}/>
+                    selected={selectedMarcas} todos={true} />
                 <OptionFiltroContainer title="Cores" group={"cor"} value={cores} handle={handleSelectCor}
-                                       selected={selectedColors} todos={true}/>
+                    selected={selectedColors} todos={true} />
                 <OptionFiltroContainer title="Câmbio" group={"cambio"} value={cambios} handle={handleSelectCambio}
-                                       selected={selectedCambios} todos={true}/>
+                    selected={selectedCambios} todos={true} />
                 <OptionFiltroContainer title="Combustível" group={"combustivel"} value={combustiveis}
-                                       handle={handleSelectCombustivel} selected={selectedCombustivel} todos={true}/>
+                    handle={handleSelectCombustivel} selected={selectedCombustivel} todos={true} />
                 <OptionFiltroContainer title="Carroceria" group={"carroceria"} value={carrocerias}
-                                       handle={handleSelectCarroceria} selected={selectedCarroceria} todos={true}/>
+                    handle={handleSelectCarroceria} selected={selectedCarroceria} todos={true} />
                 <div className="col-12 div-filtro-button">
                     <button className="filtro-button" onClick={() => applyFilter("")}>Filtrar <LuFilter
-                        className="icon-button-filtro"/></button>
+                        className="icon-button-filtro" /></button>
                 </div>
             </div>
             <div className="cards-div-veiculos col-9">
                 {filteredVehicles.length === 0 ?
-                    (isLoading ? <div className="spinner-border" role="status">
-                        <span className="visually-hidden">Loading...</span>
-                    </div> : <div className="cards-itens-div-none-veiculos">
-                        <h1 className="col-12">Veículos em destaque</h1>
-                        <h2>Nenhum veículo foi encontrado :(</h2>
-                    </div>) :
+                    (isLoading ?
+                        <div className="spinner-estoque-carros-div">
+                            <div className="spinner-border spinner-estoque-carros" role="status">
+                                <span className="visually-hidden">Loading...</span>
+                            </div>
+                        </div> :
+                        <div className="cards-itens-div-none-veiculos">
+                            <h1 className="col-12">Veículos em destaque</h1>
+                            <h2>Nenhum veículo foi encontrado :(</h2>
+                        </div>) :
                     <div className="cards-itens-div-veiculos row">
-                    <h1 className="col-12">Veículos em destaque</h1>
+                        <h1 className="col-12">Veículos em destaque</h1>
                         {filteredVehicles.length === 0 ? <h2>Nada encontrado</h2> : filteredVehicles?.map(value =>
-                            <CardVeiculoEstoque veiculo={value} key={value.codigo}/>
+                            <CardVeiculoEstoque veiculo={value} key={value.codigo} />
                         )}
                     </div>
                 }
